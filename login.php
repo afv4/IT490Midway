@@ -41,10 +41,10 @@ switch ($request["type"])
 }
 
 if($response){
-	echo json_encode("Heading online now!");
+	echo json_encode("Heading online now!<p><img src='./praisethesun.gif'/>");
 }
 else{
-	echo json_encode("Incorrect Username or Password");
+	echo json_encode("Incorrect Username or Password<p>");
 }
 
 //echo json_encode($response);

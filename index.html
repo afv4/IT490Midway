@@ -22,7 +22,7 @@
     <div id = "output"></div>
     <div class="container">
 
-    <!---  <img id="SUN" alt="" class="PRAISE-THE-SUN" weight="150" height="150"
+    <!---  <img weight="150" height="150"
             onmouseover="this.src='./praisethesun.gif'; this.width='150'; this.height='200';"
             onmouseout="this.src='./praisethesun.jpg'; this.width='150'; this.height='150';"
             src="./praisethesun.jpg" />
@@ -63,8 +63,23 @@
     function HandleLoginResponse(response)
     {
       var text = JSON.parse(response);
-      document.getElementById("output").innerHTML = text+"<p>";
+      document.getElementById("output").innerHTML = text;
     }
+
+    //function HandleLoginResponse(response){
+    //  var data = JSON.parse(response)
+    //  var text = JSON.stringify(response)
+    //  if(data.status != response){
+    //    alert("Login Failed!");
+    //    location.reload();
+    //  }
+    //  else{
+    //    sessionStorage.setItem("sessionId",data.sessionId);
+    //   sessionStorage.setItem("username",data.username);
+    //    sessionStorage.setItem("role",data.role);
+    //    location.href="userprofile.html"
+    //  }
+    //}
 
     function sendLoginRequest(username,password)
     {

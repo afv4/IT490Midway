@@ -1,28 +1,37 @@
 body {
   padding-top: 100px;
   padding-bottom: 150px;
-  color: #FFFFFF;
+  color: #000000;
   background-color: #000000;
   background-image: url("./1.jpg");
   text-align: center;
 }
 
 #output{
-  color: orange;
+  color: black;
   font-size: 24px;
   font-style: italic;
   font-family: fantasy;
 }
 
+h1 {
+  color: black;
+  font-size: 18px;
+  font-family: fantasy;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .btn{
-  background-color: red;
+  background-color: purple;
 }
 
 .form-signin {
   max-width: 350px;
   padding: 15px;
   margin: 0 auto;
-  color: orange;
+  color: red;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
