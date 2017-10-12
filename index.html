@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,22 +68,28 @@
     {
       var text = JSON.parse(response);
       document.getElementById("output").innerHTML = text;
+      if(response){
+        alert("Login Success!");
+        sessionStorage.setItem("username",text.uname);
+        sessionStorage.setItem("role",text.role);
+        document.location.href="userprofile.html";
+      }
     }
 
-    //function HandleLoginResponse(response){
-    //  var data = JSON.parse(response)
-    //  var text = JSON.stringify(response)
-    //  if(data.status != response){
-    //    alert("Login Failed!");
-    //    location.reload();
-    //  }
-    //  else{
-    //    sessionStorage.setItem("sessionId",data.sessionId);
-    //   sessionStorage.setItem("username",data.username);
-    //    sessionStorage.setItem("role",data.role);
-    //    location.href="userprofile.html"
-    //  }
-    //}
+    /*function HandleLoginResponse(response){
+      var data = JSON.parse(response)
+      var text = JSON.stringify(response)
+      if(data.status != response){
+        alert("Login Failed!");
+        location.reload();
+      }
+      else{
+        sessionStorage.setItem("sessionId",data.sessionId);
+        sessionStorage.setItem("username",data.username);
+        sessionStorage.setItem("role",data.role);
+        document.location.href="userprofile.html"
+      }
+    }*/
 
     function sendLoginRequest(username,password)
     {
