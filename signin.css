@@ -16,11 +16,10 @@ body {
 
 h1 {
   color: black;
-  font-size: 18px;
+  font-size: 26px;
   font-family: fantasy;
   text-align: center;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .btn{
@@ -29,9 +28,8 @@ h1 {
 
 .form-signin {
   max-width: 350px;
-  padding: 15px;
   margin: 0 auto;
-  color: red;
+  color: black;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {

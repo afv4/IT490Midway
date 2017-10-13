@@ -24,9 +24,15 @@
       <form class="form-signin">
         <h2 class="form-signin-heading">Make a new account below!</h2>
         <label for="inputName" class="sr-only">Username</label>
-        <input type="username" id="inputName" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="username" id="inputName" class="form-control" placeholder="Requested Username (REMEMBER!!)" required autofocus>
+        <label for="inputPassword" class="sr-only"> Requested Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder=" Requested Password (REMEMBER!!)" required>
+				<label for="dob" class="sr-only">Date of Birth</label>
+        <input type="input" id="dob" class="form-control" placeholder="mm/dd/yyyy" required>
+				<label for="aboutMe" class="sr-only">About Me</label>
+        <input type="input" id="aboutMe" class="form-control" placeholder="About Me" required>
+				<label for="rName" class="sr-only">Real Name</label>
+        <input type="input" id="rName" class="form-control" placeholder="Real Name" required>
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="submitRegistration()">Create Account Now!</button>
       </form>
     </div>
@@ -37,15 +43,26 @@
 		{
 			var uname = document.getElementById("inputName").value;
 			var pword = document.getElementById("inputPassword").value;
-			sendRegistrationRequest(uname,pword);
+			var dob = document.getElementById("dob").value;
+			var aboutMe = document.getElementById("aboutMe").value;
+			var rName = document.getElementById("rName").value;
+			sendRegistrationRequest(uname,pword,dob,aboutMe,rName);
 			return 0;
 		}
 		function HandleRegistrationResponse(response)
 		{
 			var text = JSON.parse(response);
-			document.getElementById("output").innerHTML = text+"<p>";
+      document.getElementById("output").innerHTML = text;
+      if(response){
+        alert("Registration Success!");
+        document.location.href="index.php";
+      }else if(!response){
+        alert("Username already in use!");
+      }else{
+        alert("Servers are offline!");
+      }
 		}
-		function sendRegistrationRequest(username,password)
+		function sendRegistrationRequest(username,password,dob,aboutMe,rName)
 		{
 			var request = new XMLHttpRequest();
 			request.open("POST","login.php",true);
@@ -58,7 +75,7 @@
 					HandleRegistrationResponse(this.responseText);
 				}
 			}
-			request.send("type=register&uname="+username+"&pword="+password);
+			request.send("type=register&uname="+username+"&pword="+password+"&dob="+dob+"&aboutMe="+aboutMe+"&rName="+rName);
 		}
 
 		</script>
