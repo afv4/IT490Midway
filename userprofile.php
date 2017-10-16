@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,7 @@ echo $_SESSION['username'];
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
-    <h1 id="uname"></h1>
+    <h1 id="uname"><?php echo $_SESSION['username']; ?></h1>
 
   <body onload = "pullUserInfo()">
     <form class="form-signin">

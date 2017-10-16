@@ -24,11 +24,10 @@ $uname = $_SESSION['username'];
 
       <h1 id="pageTitle">Your Decks!</h1>
 
-    <body onload = "pullUserInfo()">
+    <body>
       <form class="form-signin">
-          <ul id="deckNames">
-            <li>Deck name here!</li><button id="editDeck">Edit</button><button id="deleteDeck">Delete</button>
-          </ul>
+
+          <button id="editDeck">Edit</button><button id="deleteDeck">Delete</button><br>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
@@ -36,7 +35,7 @@ $uname = $_SESSION['username'];
 
       <script type="text/javascript">
 
-        //function pullUserInfo(){}
+        //function pullUserInfo()
 
       </script>
     </body>
