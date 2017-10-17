@@ -28,7 +28,6 @@ function getCard($type,$tag,$name)
   $request['name'] = $name;
   //$request['message'] = $msg;
   $response = $client->send_request($request);
-  //$response = $client->publish($request);
 
   //$card = json_decode($response,true);
   //LogMsg("client received response: ",$PathArray[4]);
@@ -42,13 +41,20 @@ function getCard($type,$tag,$name)
 
 if(isset($_POST)){
   $request = $_POST;
-  $response = "unsupported request type";
-  switch($request['type']){
+  if ($request['type']=="searchAll"){
+    $result = searchCards($request["type"],$request["val"]);
+  }
+  else if ($request['type']=="get_card"){
+    $card = getCard($request["type"],$request["tag"],$request["name"]);
+  }
+  /*switch($request['type'])
+  {
     case "searchAll":
       $result = searchCards($request["type"],$request["val"]);
     case "get_card":
       $card = getCard($request["type"],$request["tag"],$request["name"]);
-  }
+    break;
+  }*/
 }
 
 ?>

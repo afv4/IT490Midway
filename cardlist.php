@@ -38,7 +38,7 @@ $uname = $_SESSION['username'];
           <input type="text" id="cardName" class="form-control" placeholder="Copy card name here from above">
           <button type="button" onclick="pullCardInfo()">Show Card Info</button>
           <div id="cardInfo"></div>
-          
+
           <button type"button" >Add this card to your deck!</button>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
