@@ -1,4 +1,6 @@
 <?php
+require_once('logscript.php');
+
 session_start();
 ?>
 
@@ -23,18 +25,71 @@ session_start();
 
   <body onload = "pullUserInfo()">
     <form class="form-signin">
-        <h2 id="rname">Real name!</h2>
-        <h2 id="DOB">Date of birth!</h2>
-        <h2>About Me!</h2>
-          <p id="about">Like seriously... what?</p>
-        <h2 id="UID">User ID number!</h2>
+
+        <input type="text" id="receiver" name="sendTo" class="form-control" placeholder="Who are you sending this to?" autofocus>
+        <input type="text" id="messageBlock" name="messageArea" class="form-control" placeholder="Write your message!" autofocus>
+        <button onclick="">SEND Message</button>
+
+        <h2>***Inbox***</h2>
+        <button onclick="">Update Inbox</button><br>
+
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
-        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Decks</button>
+        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button>
     </form>
 
     <script type="text/javascript">
 
-      //function pullUserInfo(){}
+    function pushMessage()
+    {
+      var receiver = document.getElementById("searchCards").value;
+      var message = document.getElementById("messageBlock").value;
+      var sender = "<?php echo $_SESSION['username']; ?>";
+      pushing(receiver,message,sender);
+      return 0;
+    }
+
+    function pushing(receiver,message,sender){
+      var request = new XMLHttpRequest();
+      request.open("POST","forum.php",true);
+      request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+      request.onreadystatechange= function (){
+        if ((this.readyState == 4)&&(this.status == 200)){
+          HandleSearchResponse(this.responseText);
+        }
+      }
+      request.send("type=sendMessage&uid="+receiver+"&message="+message);
+    }
+
+    function HandlePushingResponse(response){
+      //console.log(response);
+      //var array = JSON.parse(response);
+      //document.getElementById("results").innerHTML = "<p>" + array + "</p>";
+    }
+
+    function pullMessage()
+    {
+      var uname = "<?php echo $_SESSION['username']; ?>";
+      pulling(uname);
+      return 0;
+    }
+
+    function pulling(value){
+      var request = new XMLHttpRequest();
+      request.open("POST","forum.php",true);
+      request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+      request.onreadystatechange= function (){
+        if ((this.readyState == 4)&&(this.status == 200)){
+          HandleSearchResponse(this.responseText);
+        }
+      }
+      request.send("type=getMessage&val="+value);
+    }
+
+    function HandleSearchResponse(response){
+      //console.log(response);
+      var array = JSON.parse(response);
+      document.getElementById("results").innerHTML = "<p>" + array + "</p>";
+    }
 
     </script>
   </body>

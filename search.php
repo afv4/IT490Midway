@@ -2,9 +2,12 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('logscript.php');
 
 function searchCards($type,$val)
 {
+  $file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
   $client = new rabbitMQClient("queryRabbitMQ.ini","testServer");
   $request = array();
   $request['type'] = $type;
@@ -12,6 +15,7 @@ function searchCards($type,$val)
   $response = $client->send_request($request);
 
   //echo "client received response: " . PHP_EOL
+  LogMsg("Front-End has received card list: ".$response, $PathArray[4]);
   print_r($response);
   //echo "\n\n";
   return $response;

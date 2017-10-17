@@ -1,4 +1,6 @@
 <?php
+require_once('logscript.php');
+
 session_start();
 ?>
 
@@ -26,15 +28,8 @@ session_start();
     <div id = "output"></div>
     <div class="container">
 
-    <!---  <img weight="150" height="150"
-            onmouseover="this.src='./praisethesun.gif'; this.width='150'; this.height='200';"
-            onmouseout="this.src='./praisethesun.jpg'; this.width='150'; this.height='150';"
-            src="./praisethesun.jpg" />
-    --->
-
       <form id="loginForm" class="form-signin">
         <h2 class="form-signin-heading">Authenticate Yourself</h2>
-        <input type="hidden" name="mysession" id="mysession">
         <label for="inputName" class="sr-only">Username</label>
         <input type="username" id="inputName" name="userInput" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
@@ -89,21 +84,6 @@ session_start();
       }
       request.send("type=login&uname="+username+"&pword="+password);
     }
-
-    /*function HandleLoginResponse(response){
-      var data = JSON.parse(response)
-      var text = JSON.stringify(response)
-      if(data.status != response){
-        alert("Login Failed!");
-        location.reload();
-      }
-      else{
-        sessionStorage.setItem("sessionId",data.sessionId);
-        sessionStorage.setItem("username",data.username);
-        sessionStorage.setItem("role",data.role);
-        document.location.href="userprofile.html"
-      }
-    }*/
 
     </script>
   </body>

@@ -2,6 +2,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('logscript.php');
 //include_once('testRabbitMQClient.php')
 
 session_start();
@@ -17,6 +18,8 @@ $response = "unsupported request type, politely FUCK OFF";
 
 function sendtoServer($type,$username,$password)
 {
+	$file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
   $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
   $request = array();
   $request['type'] = $type;
@@ -26,12 +29,14 @@ function sendtoServer($type,$username,$password)
   $response = $client->send_request($request);
   //$response = $client->publish($request);
 
-  //LogMsg("client received response: " . $response);
+	LogMsg("Front-End has received response for login: ".$response, $PathArray[4]);
   return $response;
 }
 
 function registertoServer($type,$username,$password,$dob,$aboutMe,$rName)
 {
+	$file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
   $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
   $request = array();
   $request['type'] = $type;
@@ -44,7 +49,7 @@ function registertoServer($type,$username,$password,$dob,$aboutMe,$rName)
   $response = $client->send_request($request);
   //$response = $client->publish($request);
 
-  //LogMsg("client received response: " . $response);
+  //LogMsg("Front-End has received response for registration: ".$response, $PathArray[4]);
   return $response;
 }
 
@@ -63,9 +68,15 @@ switch ($request["type"])
 $_SESSION['username'] = $request['uname'];
 
 if($response){
+	$file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
+	LogMsg("Front-End Login Successful! ".$response, $PathArray[4]);
 	echo json_encode("Heading online now!<p><img src='./praisethesun.gif'/>");
 }
 else{
+	$file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
+	LogMsg("Front-End Login Failed! ".$response, $PathArray[4]);
 	echo json_encode("Incorrect Username or Password<p>");
 }
 

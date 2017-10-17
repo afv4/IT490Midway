@@ -1,4 +1,6 @@
 <?php
+require_once('logscript.php');
+
 session_start();
 $uname = $_SESSION['username'];
 ?>
@@ -41,8 +43,8 @@ $uname = $_SESSION['username'];
 
           <button type"button" >Add this card to your deck!</button>
 
-          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
-          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Decks</button>
+          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Mailbox</button>
+          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button>
 
       </form>
 
@@ -111,6 +113,9 @@ $uname = $_SESSION['username'];
             "Card DEF: " +card.def+"<br>"+
             "Card Level: " +card.level + "</p>";
         }
+
+        //function loadDeck(){}
+        //function addToDeck(){}
 
       </script>
     </body>

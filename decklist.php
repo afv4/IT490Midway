@@ -1,4 +1,6 @@
 <?php
+require_once('logscript.php');
+
 session_start();
 $uname = $_SESSION['username'];
 ?>
@@ -22,20 +24,29 @@ $uname = $_SESSION['username'];
   </head>
 
 
-      <h1 id="pageTitle">Your Decks!</h1>
+      <h1 id="pageTitle">Your Deck!</h1>
 
     <body>
       <form class="form-signin">
 
-          <button id="editDeck">Edit</button><button id="deleteDeck">Delete</button><br>
+          <div id="deckList"></div>
+
+          <input type="text" id="cardID" name="cardTag" class="form-control" placeholder="Card tag of the card you want removed!" autofocus>
+          <h3 id="high">High Deck Value:</h3>
+          <h3 id="low">Low Deck Value:</h3>
+          <h3 id="avg">Average Deck Value:</h3>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
-          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
+          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Mailbox</button>
       </form>
 
       <script type="text/javascript">
 
-        //function pullUserInfo()
+        //function loadDeck(){}
+        //function removeFromDeck(){}
+        //function getHigh(){}
+        //function getLow(){}
+        //function getAvg(){}
 
       </script>
     </body>
