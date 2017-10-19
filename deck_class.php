@@ -34,6 +34,13 @@ class Deck
     }
   }
 
+  /*if(isset($_POST)){
+    $request = $_POST;
+      if ($request['type']=="save_deck"){
+          $message = add_card($request["type"],$request["card"]);
+      }
+  }*/
+
   public function show_cards()
   {
     $card_names = [];

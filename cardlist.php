@@ -42,7 +42,7 @@ $uname = $_SESSION['username'];
           <button type="button" onclick="pullCardInfo()">Show Card Info</button>
           <div id="cardInfo"></div>
 
-          <button type="button" onclick="addToDeck()">Add this card to your deck!</button>
+          <button type="button">Add this card to your deck!</button>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Mailbox</button>
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button>
