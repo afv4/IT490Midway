@@ -31,7 +31,7 @@ $uname = $_SESSION['username'];
     <body>
       <form class="form-signin" action="" method="post">
           <h3 id="avg">Average Deck Value: $<?php echo $_SESSION['deck']->get_price('avg');?></h3>
-          <h2 id="deckList"><?php $_SESSION['deck']->show_cards();?></h2>
+          <h2 id="deckList"><?php echo $_SESSION['deck']->show_cards();?></h2>
 
           <input type="text" id="card" name="cardName" class="form-control" placeholder="Exact name of the card you want removed!" autofocus>
           <button type"button" onclick="">Remove Card from Deck</button>

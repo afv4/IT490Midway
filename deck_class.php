@@ -39,7 +39,8 @@ class Deck
     $card_names = [];
     foreach($this->deck as $card)
     {
-      array_push($card_names,$card['name']);
+      $card_info = [$card['tag'],$card['name']];
+      array_push($card_names,$card_info);
       //$card_names[$card['tag']] = $card['name'];
     }
     return json_encode($card_names);
