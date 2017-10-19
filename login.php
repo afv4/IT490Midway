@@ -3,6 +3,7 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('logscript.php');
+require_once('deck_class.php');
 //include_once('testRabbitMQClient.php')
 
 session_start();
@@ -66,6 +67,10 @@ switch ($request["type"])
 }
 
 $_SESSION['username'] = $request['uname'];
+$uname = $_SESSION['username'];
+$_SESSION['deck'] = new Deck($uname);
+$_SESSION['deck']->load_deck($uname);
+
 
 if($response){
 	$file = __FILE__.PHP_EOL;

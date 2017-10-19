@@ -1,6 +1,6 @@
 <?php
 require_once('logscript.php');
-
+//session_destroy();
 session_start();
 ?>
 

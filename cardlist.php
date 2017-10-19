@@ -1,5 +1,6 @@
 <?php
 require_once('logscript.php');
+require_once('deck_class.php');
 
 session_start();
 $uname = $_SESSION['username'];
@@ -41,7 +42,7 @@ $uname = $_SESSION['username'];
           <button type="button" onclick="pullCardInfo()">Show Card Info</button>
           <div id="cardInfo"></div>
 
-          <button type"button" >Add this card to your deck!</button>
+          <button type="button" onclick="addToDeck()">Add this card to your deck!</button>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Mailbox</button>
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button>
@@ -101,6 +102,7 @@ $uname = $_SESSION['username'];
           var card = JSON.parse(response);
           document.getElementById("cardInfo").innerHTML = "<p>" +
             "Card Name: " +card.name+"<br>"+
+            "Card Print Tag: " +card.tag+"<br>"+
             "Card Rarity: " +card.rarity+"<br>"+
             "Card High Price: $" +card.high_price+"<br>"+
             "Card Low Price: $" +card.low_price+"<br>"+
@@ -114,7 +116,6 @@ $uname = $_SESSION['username'];
             "Card Level: " +card.level + "</p>";
         }
 
-        //function loadDeck(){}
         //function addToDeck(){}
 
       </script>
