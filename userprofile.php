@@ -23,15 +23,18 @@ session_start();
   </head>
     <h1 id="uname"><?php echo $_SESSION['username']; ?></h1>
 
-  <body onload = "pullUserInfo()">
+  <body onload = "getAll()">
     <form class="form-signin">
 
         <input type="text" id="receiver" name="sendTo" class="form-control" placeholder="Who are you sending this to?" autofocus>
         <input type="text" id="messageBlock" name="messageArea" class="form-control" placeholder="Write your message!" autofocus>
-        <button onclick="pushMessage()">SEND Message</button>
+        <button type="button" onclick="pushMessage()">SEND Message</button>
+
+        <h2 id="userList"><h2>
 
         <h2>***Inbox***</h2>
-        <button onclick="pullMessage()">Update Inbox</button><br>
+        <button type="button" onclick="pullMessage()">Update Inbox</button><br>
+        <div id="inbox"></div>
 
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button>
@@ -42,38 +45,26 @@ session_start();
     function pushMessage()
     {
       var receiver = document.getElementById("receiver").value;
-      var message = document.getElementById("messageBlock").value;
-      var sender = "<?php echo $_SESSION['username']; ?>";
-      pushing(receiver,message,sender);
+      var message = "Hi this is " + document.getElementById('uname').innerHTML + "     " + document.getElementById("messageBlock").value;
+      pushing(receiver,message);
       return 0;
     }
 
-    function pushing(receiver,message,sender){
+    function pushing(receiver,message){
       var request = new XMLHttpRequest();
       request.open("POST","forum.php",true);
       request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-      request.onreadystatechange= function (){
-        if ((this.readyState == 4)&&(this.status == 200)){
-          HandlePushingResponse(this.responseText);
-        }
-      }
-      request.send("type=sendMessage&uid="+receiver+"&message="+message);
-    }
-
-    function HandlePushingResponse(response){
-      //console.log(response);
-      //var array = JSON.parse(response);
-      //document.getElementById("results").innerHTML = "<p>" + array + "</p>";
+      request.send("type=sendMessage&userName="+receiver+"&message="+message);
     }
 
     function pullMessage()
     {
-      var uname = "<?php echo $_SESSION['username']; ?>";
+      var uname = document.getElementById('uname').innerHTML;
       pulling(uname);
       return 0;
     }
 
-    function pulling(value){
+    function pulling(uname){
       var request = new XMLHttpRequest();
       request.open("POST","forum.php",true);
       request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -82,23 +73,16 @@ session_start();
           HandlePullingResponse(this.responseText);
         }
       }
-      request.send("type=getMessage&="+value);
+      request.send("type=getMessage&userName="+uname);
     }
 
     function HandlePullingResponse(response){
-      //console.log(response);
-      //var array = JSON.parse(response);
-      //document.getElementById("results").innerHTML = "<p>" + array + "</p>";
+      console.log(response);
+      var messages = JSON.parse(response);
+      document.getElementById("inbox").innerHTML = "<p>" + messages + "</p>";
     }
 
-    function getUserId()
-    {
-      var uname = "<?php echo $_SESSION['username']; ?>";
-      getit(uname);
-      return 0;
-    }
-
-    function getit(username){
+    function getAll(){
       var request = new XMLHttpRequest();
       request.open("POST","forum.php",true);
       request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -107,13 +91,13 @@ session_start();
           HandleUIDResponse(this.responseText);
         }
       }
-      request.send("type=getUide&userName="+username);
+      request.send("type=getAllUsers");
     }
 
     function HandleUIDResponse(response){
       //console.log(response);
-      //var array = JSON.parse(response);
-      //document.getElementById("results").innerHTML = "<p>" + array + "</p>";
+      var array = JSON.parse(response);
+      document.getElementById("userList").innerHTML = "List of all users: " + array;
     }
 
     </script>

@@ -4,7 +4,7 @@ require_once('deck_class.php');
 
 session_start();
 $uname = $_SESSION['username'];
-$_SESSION['deck'] = new Deck($_SESSION['username']);
+//$_SESSION['deck'] = new Deck($_SESSION['username']);
 ?>
 
 <!DOCTYPE html>
