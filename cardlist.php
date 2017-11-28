@@ -44,7 +44,7 @@ $uname = $_SESSION['username'];
 
           <button type="button">Add this card to your deck!</button>
 
-          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Mailbox</button>
+          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button>
 
       </form>
@@ -100,7 +100,8 @@ $uname = $_SESSION['username'];
         function HandleCardPullResponse(response){
           //console.log(response);
           var card = JSON.parse(response);
-          document.getElementById("cardInfo").innerHTML = "<p>" +
+          document.getElementById("cardInfo").innerHTML = "<img src=\"http://" +
+            card.image_url+ "\" alt='yugioh card image' height=400px width=275px><br><p>" +
             "Card Name: " +card.name+"<br>"+
             "Card Print Tag: " +card.tag+"<br>"+
             "Card Rarity: " +card.rarity+"<br>"+

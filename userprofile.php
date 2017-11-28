@@ -21,7 +21,21 @@ session_start();
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
-    <h1 id="uname"><?php echo $_SESSION['username']; ?></h1>
+    <h1 id="uname">
+        <?php
+          /*// temporarily enable superglobals
+          $request->enable_super_globals();
+
+          session_start();
+          $_SESSION['UName'] = 'admin';
+          $_SESSION['PWord'] = 'password';
+
+          // disable superglobals again
+          $request->disable_super_globals();*/
+
+          echo $_SESSION['username'];
+        ?>
+    </h1>
 
   <body onload = "getAll()">
     <form class="form-signin">
@@ -37,7 +51,8 @@ session_start();
         <div id="inbox"></div>
 
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
-        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button>
+        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button><br>
+        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./theForum/index.php'">THE FORUM</button>
     </form>
 
     <script type="text/javascript">
@@ -45,7 +60,7 @@ session_start();
     function pushMessage()
     {
       var receiver = document.getElementById("receiver").value;
-      var message = "Hi this is " + document.getElementById('uname').innerHTML + "     " + document.getElementById("messageBlock").value;
+      var message = "Hi this is " + document.getElementById('uname').innerHTML + " --> " + document.getElementById("messageBlock").value;
       pushing(receiver,message);
       return 0;
     }

@@ -1,6 +1,6 @@
 <?php
 require_once('logscript.php');
-//session_destroy();
+
 session_start();
 ?>
 
@@ -40,7 +40,7 @@ session_start();
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="submitLogin()">Sign in</button>
-        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href='./registerNow.html'">Register Now</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href='./registerNow.php'">Register Now</button>
       </form>
 
     </div> <!-- /container -->

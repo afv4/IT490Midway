@@ -4,9 +4,6 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('logscript.php');
 require_once('deck_class.php');
-//include_once('testRabbitMQClient.php')
-
-session_start();
 
 if (!isset($_POST))
 {
@@ -65,8 +62,9 @@ switch ($request["type"])
 
 	break;
 }
-
+session_start();
 $_SESSION['username'] = $request['uname'];
+$_SESSION['password'] = $request['pword'];
 $uname = $_SESSION['username'];
 $_SESSION['deck'] = new Deck($uname);
 $_SESSION['deck']->load_deck($uname);

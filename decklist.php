@@ -37,7 +37,7 @@ $uname = $_SESSION['username'];
           <button type"button" onclick="">Remove Card from Deck</button>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
-          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Mailbox</button>
+          <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
       </form>
 
       <script type="text/javascript">
