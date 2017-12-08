@@ -1,4 +1,16 @@
-<?php session_start();?>
+<?php
+
+define('IN_PHPBB', true);
+$phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : 'theForum/';
+$phpEx = substr(strrchr(__FILE__, '.'), 1);
+include($phpbb_root_path . 'common.' . $phpEx);
+
+// Start session management
+$user->session_begin();
+$auth->acl($user->data);
+$user->setup();
+
+?>
 
 <!DOCTYPE html>
 <html lang = "en">
@@ -19,15 +31,15 @@
   </head>
     <h1 id="uname">
         <?php
-          /*// temporarily enable superglobals
+          // temporarily enable superglobals
           $request->enable_super_globals();
 
           session_start();
-          $_SESSION['UName'] = 'admin';
-          $_SESSION['PWord'] = 'password';
+          $_SESSION['UName'] = 'afv4';
+          $_SESSION['PWord'] = 'afv4';
 
           // disable superglobals again
-          $request->disable_super_globals();*/
+          $request->disable_super_globals();
 
           echo $_SESSION['username'];
         ?>
@@ -48,7 +60,7 @@
 
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button><br>
-        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./theForum/index.php'">THE FORUM</button>
+        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./theForum/autologin.php'">THE FORUM</button>
     </form>
 
     <script type="text/javascript">

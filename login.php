@@ -16,8 +16,8 @@ $response = "unsupported request type, politely FUCK OFF";
 
 function sendtoServer($type,$username,$password)
 {
-	//$file = __FILE__.PHP_EOL;
-	//$PathArray = explode("/",$file);
+	$file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
   $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 	//$client = SendToConsumer("testRabbitMQ.ini", "testBackup.ini", "testServer");
   $request = array();
@@ -26,14 +26,14 @@ function sendtoServer($type,$username,$password)
   $request['password'] = $password;
   $response = $client->send_request($request);
 
-	//LogMsg("Front-End has received response for login: ".$response, $PathArray[4], 'afv4', 'DevFront');
+	LogMsg("Front-End has received response for login: ".$response, $PathArray[4], 'afv4', 'DevFront');
   return $response;
 }
 
 function registertoServer($type,$username,$password,$dob,$aboutMe,$rName)
 {
-	//$file = __FILE__.PHP_EOL;
-	//$PathArray = explode("/",$file);
+	$file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
   $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 	//$client = SendToConsumer("testRabbitMQ.ini", "testBackup.ini", "testServer");
   $request = array();
@@ -45,7 +45,7 @@ function registertoServer($type,$username,$password,$dob,$aboutMe,$rName)
 	$request['rName'] = $rName;
   $response = $client->send_request($request);
 
-  //LogMsg("Front-End has received response for registration: ".$response, $PathArray[4], 'afv4', 'DevFront');
+  LogMsg("Front-End has received response for registration: ".$response, $PathArray[4], 'afv4', 'DevFront');
   return $response;
 }
 
@@ -66,15 +66,15 @@ $uname = $_SESSION['username'];
 $_SESSION['deck'] = LoadDeck($uname);
 
 if($response){
-	//$file = __FILE__.PHP_EOL;
-	//$PathArray = explode("/",$file);
-	//LogMsg("Front-End Login Successful! ".$response, $PathArray[4], 'afv4', 'DevFront');
+	$file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
+	LogMsg("Front-End Login Successful! ".$response, $PathArray[4], 'afv4', 'DevFront');
 	echo json_encode("Heading online now!<p><img src='./praisethesun.gif'/>");
 }
 else{
-	//$file = __FILE__.PHP_EOL;
-	//$PathArray = explode("/",$file);
-	//LogMsg("Front-End Login Failed! ".$response, $PathArray[4], 'afv4', 'DevFront');
+	$file = __FILE__.PHP_EOL;
+	$PathArray = explode("/",$file);
+	LogMsg("Front-End Login Failed! ".$response, $PathArray[4], 'afv4', 'DevFront');
 	echo json_encode("Incorrect Username or Password<p>");
 }
 
