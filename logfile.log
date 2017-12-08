@@ -246,3 +246,11 @@ This is a local log.
 2017-11-21 - Tuesday - 10:32:29am - afv4 - Front-End Login Successful! 1 - login.php
 2017-11-21 - Tuesday - 10:39:32am - afv4 - Front-End has received response for login: 0 - login.php
 2017-11-21 - Tuesday - 10:39:34am - afv4 - Front-End Login Failed! 0 - login.php
+2017-12-08 - Friday - 12:57:17pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":57.02,"low_price":15.99,"avg_price":24.78,"text":"Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.","card_type":"monster","type":"Machine \/ Effect","family":"dark","atk":2400,"def":1500,"level":6,"image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-08 - Friday - 01:19:03pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":57.02,"low_price":15.99,"avg_price":24.78,"text":"Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.","card_type":"monster","type":"Machine \/ Effect","family":"dark","atk":2400,"def":1500,"level":6,"image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-08 - Friday - 02:00:39pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-08 - Friday - 02:00:40pm - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-08 - Friday - 02:01:34pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-08 - Friday - 02:01:35pm - afv4 - DevFront - Front-End has received response for registration: 1 - login.php

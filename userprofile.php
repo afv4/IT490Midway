@@ -1,8 +1,4 @@
-<?php
-require_once('logscript.php');
-
-session_start();
-?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang = "en">
@@ -110,7 +106,6 @@ session_start();
     }
 
     function HandleUIDResponse(response){
-      //console.log(response);
       var array = JSON.parse(response);
       document.getElementById("userList").innerHTML = "List of all users: " + array;
     }

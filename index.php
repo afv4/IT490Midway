@@ -1,8 +1,4 @@
-<?php
-require_once('logscript.php');
-
-session_start();
-?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +25,7 @@ session_start();
     <div class="container">
 
       <form id="loginForm" class="form-signin">
-        <h2 class="form-signin-heading">Authenticate Yourself</h2>
+        <h2 class="form-signin-heading">Authenticate Yourself On the Primary!</h2>
         <label for="inputName" class="sr-only">Username</label>
         <input type="username" id="inputName" name="userInput" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
@@ -61,11 +57,11 @@ session_start();
 
     function HandleLoginResponse(response)
     {
+      console.log(response);
       var text = JSON.parse(response);
       document.getElementById("output").innerHTML = text;
       if(text == "Heading online now!<p><img src='./praisethesun.gif'/>"){
         alert("Login Success!");
-        //$_SESSION['username'] = document.getElementById("inputName").value;
         document.location.href="userprofile.php";
       }else if(text == "Incorrect Username or Password<p>"){
         alert("Incorrect username or password!");

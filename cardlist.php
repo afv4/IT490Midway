@@ -1,5 +1,4 @@
 <?php
-require_once('logscript.php');
 require_once('deck_class.php');
 
 session_start();
@@ -24,7 +23,9 @@ $uname = $_SESSION['username'];
     <link href="signin.css" rel="stylesheet">
   </head>
 
-
+      <h1 id="uname">
+        <?php echo $_SESSION['username'];?>
+      </h1>
       <h1 id="pageTitle">Card Search!</h1>
 
     <body>
@@ -41,8 +42,7 @@ $uname = $_SESSION['username'];
           <input type="text" id="cardName" class="form-control" placeholder="Copy card name here from above">
           <button type="button" onclick="pullCardInfo()">Show Card Info</button>
           <div id="cardInfo"></div>
-
-          <button type="button">Add this card to your deck!</button>
+          <div id="answer"></div>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button>
@@ -51,6 +51,9 @@ $uname = $_SESSION['username'];
 
       <script type="text/javascript">
 
+        /* This function pulls the text that was entered in the "searchCards"
+           text box and sends that data over to the function below it for
+           processing and send it to the server for data pull. */
         function pullSearchValue()
         {
           var val = document.getElementById("searchCards").value;
@@ -58,6 +61,10 @@ $uname = $_SESSION['username'];
           return 0;
         }
 
+        /* This function recieves the text that was sent from the above
+           function. Then, this function sends that data over to the server via
+           the search.php file. The returned data is then sent to the function
+           below to place the data onto the screen. */
         function searchCards(value){
           var request = new XMLHttpRequest();
           request.open("POST","search.php",true);
@@ -70,14 +77,17 @@ $uname = $_SESSION['username'];
           request.send("type=searchAll&val="+value);
         }
 
+
         function HandleSearchResponse(response){
           //console.log(response);
           var array = JSON.parse(response);
           document.getElementById("results").innerHTML = "<p>" + array + "</p>";
         }
 
-
-
+        /* This function pulls the text that was entered in the "cardSet"
+           text box and the "cardName" text box and sends that data over to the
+           function below it for processing and send it to the server for data
+           pull. */
         function pullCardInfo(){
           var cardID = document.getElementById("cardSet").value;
           var cName = document.getElementById("cardName").value;
@@ -85,6 +95,10 @@ $uname = $_SESSION['username'];
           return 0;
         }
 
+        /* This function recieves the text that was sent from the above
+           function. Then, this function sends that data over to the server via
+           the search.php file. The returned data is then sent to the function
+           below to place the data onto the screen. */
         function getCardInfo(cID,cNam){
           var request = new XMLHttpRequest();
           request.open("POST","search.php",true);
@@ -100,6 +114,12 @@ $uname = $_SESSION['username'];
         function HandleCardPullResponse(response){
           //console.log(response);
           var card = JSON.parse(response);
+
+          var d = new Date();
+          d.setTime(d.getTime() + (0.042*24*60*60*1000));
+          var expires = "expires="+ d.toUTCString();
+          document.cookie="cardData=" + card + expires + "path=/";
+
           document.getElementById("cardInfo").innerHTML = "<img src=\"http://" +
             card.image_url+ "\" alt='yugioh card image' height=400px width=275px><br><p>" +
             "Card Name: " +card.name+"<br>"+
@@ -114,10 +134,55 @@ $uname = $_SESSION['username'];
             "Card Element: " +card.family+"<br>"+
             "Card ATK: " +card.atk+"<br>"+
             "Card DEF: " +card.def+"<br>"+
-            "Card Level: " +card.level + "</p>";
+            "Card Level: " +card.level + "</p><br>" +
+
+            "<button type=\"button\" onclick=\"addToDeck()\">Add this card to your deck!</button>";
         }
 
-        //function addToDeck(){}
+        function getCardCookie() {
+            var name = "cardData=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function addToDeck(){
+          var uname = document.getElementById('uname').innerHTML;
+          var card = getCardCookie();
+          card = JSON.stringify(card);
+          var request = new XMLHttpRequest();
+          request.open("POST","AddToDeck.php",true);
+          request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+          request.onreadystatechange= function (){
+            if ((this.readyState == 4)&&(this.status == 200)){
+              HandleSearchResponse(this.responseText);
+            }
+          }
+          request.send("type=addCard&uid="+uname+"&card="+card);
+        }
+
+
+        function HandleSearchResponse(response){
+          //console.log(response);
+          var answer = JSON.parse(response);
+          if(answer){
+            document.getElementById("answer").innerHTML = "<p> CARD ADDED!! </p>";
+          }else{
+            document.getElementById("answer").innerHTML = "<p> CARD NOT ADDED!! </p>";
+          }
+        }
 
       </script>
     </body>

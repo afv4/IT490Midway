@@ -1,24 +1,39 @@
 <?php
+require_once('path.inc');
+require_once('get_host_info.inc');
+require_once('rabbitMQLib.inc');
 
-class Deck
-{
+if (!isset($_POST)){
+	$msg = "NO POST MESSAGE SET, POLITELY FUCK OFF";
+	echo json_encode($msg);
+	exit(0);
+}
+$request = $_POST;
+$response = "unsupported request type, politely FUCK OFF";
+
+switch ($request["type"]){
+	case "addCard":
+		$response = add_card($request['uid'], $request['card']);
+
+	break;
+}
+
+
+class Deck{
   private $deck;
   private $uid;
 
-  public function __construct($uid)
-  {
+  public function __construct($uid){
     $this->deck = [];
     $this->uid = $uid;
   }
 
-  public function add_card($card)
-  {
-    if(count($this->deck)<60)
-    {
+  public function add_card($card){
+    if(count($this->deck)<60){
       array_push($this->deck,$card);
       //send card to database
       $client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
-      //insert the uid, decknum, and card print_tag into database
+      //$client = SendToConsumer("DeckRabbit.ini", "DeckBackup.ini", "DeckServer");
       $request = array();
       $request["type"] = "save_deck";
       $request["uid"] = $this->uid;
@@ -28,24 +43,14 @@ class Deck
       $response = $client->send_request($request);
       echo "saving card to deck".PHP_EOL;
     }
-    else
-    {
+    else{
       echo "Deck card limit reached, cannot add card";
     }
   }
 
-  /*if(isset($_POST)){
-    $request = $_POST;
-      if ($request['type']=="save_deck"){
-          $message = add_card($request["type"],$request["card"]);
-      }
-  }*/
-
-  public function show_cards()
-  {
+  public function show_cards(){
     $card_names = [];
-    foreach($this->deck as $card)
-    {
+    foreach($this->deck as $card){
       $card_info = [$card['tag'],$card['name']];
       array_push($card_names,$card_info);
       //$card_names[$card['tag']] = $card['name'];
@@ -76,39 +81,33 @@ class Deck
     //var_dump($this->deck);
   }
   */
-  public function get_price($type)
-  {
+  public function get_price($type){
     $price = 0;
-    if($type == "avg")
-    {
-      foreach($this->deck as $card)
-      {
+    if($type == "avg"){
+      foreach($this->deck as $card){
         $card_price = $card["avg_price"];
         $price += $card_price;
       }
     }
-    elseif($type == 'high')
-    {
-      foreach($this->deck as $card)
-      {
+    elseif($type == 'high'){
+      foreach($this->deck as $card){
         $card_price = $card["high_price"];
         $price += $card_price;
       }
     }
-    elseif($type == 'low')
-    {
-      foreach($this->deck as $card)
-      {
+    elseif($type == 'low'){
+      foreach($this->deck as $card){
         $card_price = $card["low_price"];
         $price += $card_price;
       }
     }
     return $price;
   }
-  public function load_deck($uid)
-  {
+
+  public function load_deck($uid){
     //load deck from the table
     $client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
+    //$client = SendToConsumer("DeckRabbit.ini", "DeckBackup.ini", "DeckServer");
     $request = array();
     $request["type"] = "load_deck";
     $request['uid'] = $uid;
@@ -117,8 +116,7 @@ class Deck
     $this->uid = $uid;
     $this->deck = $response;
   }
-  public function remove_card($card)
-  {
+  public function remove_card($card){
     /*
     $client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
     $request["type"] = "remove_card";
@@ -127,8 +125,7 @@ class Deck
 
     $response = $client->send_request($request);
     */
-    if(in_array($card,$this->deck))
-    {
+    if(in_array($card,$this->deck)){
       unset($this->deck[array_search($card,$this->deck)]);
       $client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
       $request["type"] = "remove_card";
