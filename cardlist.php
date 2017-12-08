@@ -50,7 +50,7 @@ $uname = $_SESSION['username'];
       </form>
 
       <script type="text/javascript">
-
+        var SuperCard = '';
         /* This function pulls the text that was entered in the "searchCards"
            text box and sends that data over to the function below it for
            processing and send it to the server for data pull. */
@@ -113,12 +113,16 @@ $uname = $_SESSION['username'];
 
         function HandleCardPullResponse(response){
           //console.log(response);
+          SuperCard = JSON.parse(response);
+          console.log(SuperCard);
           var card = JSON.parse(response);
+          //var cardThing = JSON.stringify(response);
+          //console.log(cardThing);
 
-          var d = new Date();
-          d.setTime(d.getTime() + (0.042*24*60*60*1000));
-          var expires = "expires="+ d.toUTCString();
-          document.cookie="cardData=" + card + expires + "path=/";
+          //var d = new Date();
+          //d.setTime(d.getTime() + (0.042*24*60*60*1000));
+          //var expires = "expires="+ d.toUTCString();
+          document.cookie="cardData=" + response;// + expires + "path=/";
 
           document.getElementById("cardInfo").innerHTML = "<img src=\"http://" +
             card.image_url+ "\" alt='yugioh card image' height=400px width=275px><br><p>" +
@@ -158,30 +162,33 @@ $uname = $_SESSION['username'];
             return "";
         }
 
+
         function addToDeck(){
           var uname = document.getElementById('uname').innerHTML;
-          var card = getCardCookie();
-          card = JSON.stringify(card);
+          uname = uname.replace(/\s+/g, '');
+          console.log(uname);
+          console.log(SuperCard);
+          //var card = getCardCookie();
+          SuperCard = JSON.stringify(SuperCard)
+          //console.log(card);
+          //card = JSON.parse(card);
+          //console.log(card);
+          //card = JSON.stringify(card);
           var request = new XMLHttpRequest();
           request.open("POST","AddToDeck.php",true);
           request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
           request.onreadystatechange= function (){
             if ((this.readyState == 4)&&(this.status == 200)){
-              HandleSearchResponse(this.responseText);
+              HandleAddResponse(this.responseText);
             }
           }
-          request.send("type=addCard&uid="+uname+"&card="+card);
+          //request.send("type=add_card&uid="+uname+"&card="+card);
+          request.send("type=add_card&uid="+uname+"&card="+SuperCard);
         }
 
 
-        function HandleSearchResponse(response){
-          //console.log(response);
-          var answer = JSON.parse(response);
-          if(answer){
-            document.getElementById("answer").innerHTML = "<p> CARD ADDED!! </p>";
-          }else{
-            document.getElementById("answer").innerHTML = "<p> CARD NOT ADDED!! </p>";
-          }
+        function HandleAddResponse(response){
+          document.getElementById("answer").innerHTML = "<p> CARD ADDED!! </p>";
         }
 
       </script>

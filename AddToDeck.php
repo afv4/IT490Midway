@@ -14,7 +14,7 @@ require_once('CheckAlive.php');
 function AddCard($uid,/*$decknum,*/$card){
 
   //Decode the card array from JSON format
-  $card = json_decode($card);
+  $card = json_decode($card, true);
 
   //Create client to send card to deck database
   $client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
@@ -133,12 +133,14 @@ if(isset($_POST)){
 
   switch($request['type']){
     case "add_card":
-      $response = AddCard($response['uid'],/*$response['decknum'],*/$response['card']);
+      $response = AddCard($request['uid'],/*$request['decknum'],*/$request['card']);
+      break;
     case "remove_card":
-      $response = RemoveCard($response['uid'],/*$response['decknum'],*/$response['card']);
+      $response = RemoveCard($request['uid'],/*$request['decknum'],*/$request['card']);
+      break;
     case "load_deck":
-      $deck = LoadDeck($response['uid']/*,$response['decknum']*/);
-    break;
+      $deck = LoadDeck($request['uid']/*,$request['decknum']*/);
+      break;
   }
 }
 

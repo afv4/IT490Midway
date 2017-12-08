@@ -29,20 +29,6 @@ $user->setup();
 		<link href="signin.css" rel="stylesheet">
 	</head>
 
-	<h1 id="uname">
-		<?php
-	  	// temporarily enable superglobals
-	    $request->enable_super_globals();
-
-      session_start();
-      $_SESSION['UserName'] = 'spanish123';
-      $_SESSION['PassWord'] = 'password';
-      $_SESSION['email'] = 'spanish123@gmail.com';
-
-      // disable superglobals again
-      $request->disable_super_globals();
-	  ?>
-	</h1>
 	<span id='b4'> <a href='theForum/register.php'>bb register</a></span>
 
 	<body>
@@ -66,6 +52,20 @@ $user->setup();
         <input type="input" id="rName" class="form-control" placeholder="Real Name" required>
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="submitRegistration()">Create Account Now!</button>
       </form>
+			<h1 id="uname">
+				<?php
+			  	// temporarily enable superglobals
+			    $request->enable_super_globals();
+
+		      session_start();
+		      $_SESSION['UserName'] = 'spanish123';
+		      $_SESSION['PassWord'] = 'password';
+		      $_SESSION['email'] = 'spanish123@gmail.com';
+
+		      // disable superglobals again
+		      $request->disable_super_globals();
+			  ?>
+			</h1>
     </div>
 
 				<script src="js/ie10-viewport-bug-workaround.js"></script>

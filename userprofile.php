@@ -35,8 +35,8 @@ $user->setup();
           $request->enable_super_globals();
 
           session_start();
-          $_SESSION['UName'] = 'afv4';
-          $_SESSION['PWord'] = 'afv4';
+          $_SESSION['UName'] = $_SESSION['username'];
+          $_SESSION['PWord'] = $_SESSION['password'];
 
           // disable superglobals again
           $request->disable_super_globals();
@@ -45,9 +45,10 @@ $user->setup();
         ?>
     </h1>
 
-  <body onload = "getAll()">
+  <body>
     <form class="form-signin">
 
+        <!--
         <input type="text" id="receiver" name="sendTo" class="form-control" placeholder="Who are you sending this to?" autofocus>
         <input type="text" id="messageBlock" name="messageArea" class="form-control" placeholder="Write your message!" autofocus>
         <button type="button" onclick="pushMessage()">SEND Message</button>
@@ -57,6 +58,7 @@ $user->setup();
         <h2>***Inbox***</h2>
         <button type="button" onclick="pullMessage()">Update Inbox</button><br>
         <div id="inbox"></div>
+        -->
 
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button><br>

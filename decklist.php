@@ -1,6 +1,6 @@
 <?php
 require_once('logscript.php');
-require_once('deck_class.php');
+require_once('AddToDeck.php');
 
 session_start();
 $uname = $_SESSION['username'];
@@ -25,8 +25,7 @@ $uname = $_SESSION['username'];
     <link href="signin.css" rel="stylesheet">
   </head>
 
-
-      <h1 id="pageTitle">Your Deck!</h1>
+    <h1 id="pageTitle">Your Deck!</h1>
 
     <body>
       <form class="form-signin" action="" method="post">
@@ -42,6 +41,49 @@ $uname = $_SESSION['username'];
 
       <script type="text/javascript">
 
+      function load_deck(){
+        var request = new XMLHttpRequest();
+        request.open("POST","AddToDeck.php",true);
+        request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        request.onreadystatechange= function (){
+          if ((this.readyState == 4)&&(this.status == 200)){
+            HandleLoadResponse(this.responseText);
+          }
+        }
+        request.send("type=load_deck&uid="+uid);
+      }
+
+      function HandleLoadResponse(response){
+        //console.log(response);
+        SuperCard = JSON.parse(response);
+        console.log(SuperCard);
+        var card = JSON.parse(response);
+        //var cardThing = JSON.stringify(response);
+        //console.log(cardThing);
+
+        //var d = new Date();
+        //d.setTime(d.getTime() + (0.042*24*60*60*1000));
+        //var expires = "expires="+ d.toUTCString();
+        document.cookie="cardData=" + response;// + expires + "path=/";
+
+        document.getElementById("cardInfo").innerHTML = "<img src=\"http://" +
+          card.image_url+ "\" alt='yugioh card image' height=400px width=275px><br><p>" +
+          "Card Name: " +card.name+"<br>"+
+          "Card Print Tag: " +card.tag+"<br>"+
+          "Card Rarity: " +card.rarity+"<br>"+
+          "Card High Price: $" +card.high_price+"<br>"+
+          "Card Low Price: $" +card.low_price+"<br>"+
+          "Card Avg Price: $" +card.avg_price+"<br>"+
+          "Card Desc: " +card.text+"<br>"+
+          "Card Type: " +card.card_type+"<br>"+
+          "Monster Type: " +card.type+"<br>"+
+          "Card Element: " +card.family+"<br>"+
+          "Card ATK: " +card.atk+"<br>"+
+          "Card DEF: " +card.def+"<br>"+
+          "Card Level: " +card.level + "</p><br>" +
+
+          "<button type=\"button\" onclick=\"addToDeck()\">Add this card to your deck!</button>";
+      }
       </script>
     </body>
 </html>
