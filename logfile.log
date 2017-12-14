@@ -405,3 +405,53 @@ This is a local log.
 2017-12-14 - Thursday - 01:58:09pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
 2017-12-14 - Thursday - 01:58:40pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
 2017-12-14 - Thursday - 01:58:40pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 02:06:41pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 02:06:42pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 02:07:17pm - search.php
+ - afv4 - Front-End pulled card info:  - "[empty response]"
+2017-12-14 - Thursday - 02:32:31pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":56.79,"low_price":16.09,"avg_price":25.54,"text":"Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.","card_type":"monster","type":"Machine \/ Effect","family":"dark","atk":2400,"def":1500,"level":6,"image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 02:41:28pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-001\",\"rarity\":\"Secret Rare\",\"high_price\":\"56.79\",\"low_price\":\"16\",\"avg_price\":\"26\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:43:17pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-001\",\"rarity\":\"Secret Rare\",\"high_price\":\"56.79\",\"low_price\":\"16\",\"avg_price\":\"26\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:44:28pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":"56.79","low_price":"16","avg_price":"26","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 02:44:38pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-001\",\"rarity\":\"Secret Rare\",\"high_price\":\"56.79\",\"low_price\":\"16\",\"avg_price\":\"26\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:44:57pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-001\",\"rarity\":\"Secret Rare\",\"high_price\":\"56.79\",\"low_price\":\"16\",\"avg_price\":\"26\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:45:20pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":"56.79","low_price":"16","avg_price":"26","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 02:45:31pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-001\",\"rarity\":\"Secret Rare\",\"high_price\":\"56.79\",\"low_price\":\"16\",\"avg_price\":\"26\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:46:20pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-011","rarity":"Secret Rare","high_price":78.7,"low_price":5.07,"avg_price":11.84,"text":"Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.","card_type":"monster","type":"Machine \/ Effect","family":"dark","atk":2400,"def":1500,"level":6,"image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 02:46:48pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-011","rarity":"Secret Rare","high_price":"78.7","low_price":"5","avg_price":"12","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 02:47:07pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-011\",\"rarity\":\"Secret Rare\",\"high_price\":\"78.7\",\"low_price\":\"5\",\"avg_price\":\"12\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:47:52pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-011\",\"rarity\":\"Secret Rare\",\"high_price\":\"78.7\",\"low_price\":\"5\",\"avg_price\":\"12\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:47:54pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-011\",\"rarity\":\"Secret Rare\",\"high_price\":\"78.7\",\"low_price\":\"5\",\"avg_price\":\"12\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:47:56pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-011","rarity":"Secret Rare","high_price":"78.7","low_price":"5","avg_price":"12","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 02:47:58pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-011\",\"rarity\":\"Secret Rare\",\"high_price\":\"78.7\",\"low_price\":\"5\",\"avg_price\":\"12\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:48:00pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-011\",\"rarity\":\"Secret Rare\",\"high_price\":\"78.7\",\"low_price\":\"5\",\"avg_price\":\"12\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:48:03pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-011","rarity":"Secret Rare","high_price":"78.7","low_price":"5","avg_price":"12","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 02:48:05pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-011\",\"rarity\":\"Secret Rare\",\"high_price\":\"78.7\",\"low_price\":\"5\",\"avg_price\":\"12\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:48:06pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-011\",\"rarity\":\"Secret Rare\",\"high_price\":\"78.7\",\"low_price\":\"5\",\"avg_price\":\"12\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:48:08pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-011","rarity":"Secret Rare","high_price":"78.7","low_price":"5","avg_price":"12","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 02:48:20pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-001\",\"rarity\":\"Secret Rare\",\"high_price\":\"56.79\",\"low_price\":\"16\",\"avg_price\":\"26\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:48:22pm - search.php
+ - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-001\",\"rarity\":\"Secret Rare\",\"high_price\":\"56.79\",\"low_price\":\"16\",\"avg_price\":\"26\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
+2017-12-14 - Thursday - 02:48:24pm - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":"56.79","low_price":"16","avg_price":"26","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}

@@ -24,16 +24,22 @@ $uname = $_SESSION['username'];
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
-
+    <div id="uname">
+      <?php echo $_SESSION['username'];?>
+    </div>
     <h1 id="pageTitle">Your Deck!</h1>
 
     <body>
       <form class="form-signin" action="" method="post">
-          <h3 id="avg">Average Deck Value: $<?php echo $_SESSION['deck']->get_price('avg');?></h3>
-          <h2 id="deckList"><?php echo $_SESSION['deck']->show_cards();?></h2>
+          <h3 id="avg"></h3>
+          <h2 id="deckList"></h2>
 
           <input type="text" id="card" name="cardName" class="form-control" placeholder="Exact name of the card you want removed!" autofocus>
-          <button type"button" onclick="">Remove Card from Deck</button>
+          <button type="button" onclick="">Remove Card from Deck</button><br><br>
+
+          <button type="button" onclick="load_deck_one()">Show Deck #1</button>
+          <button type="button" onclick="">Show Deck #2</button>
+          <button type="button" onclick="">Show Deck #3</button><br><br>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
@@ -41,49 +47,23 @@ $uname = $_SESSION['username'];
 
       <script type="text/javascript">
 
-      function load_deck(){
+      function load_deck_one(){
+        var uid = document.getElementById('uname').innerHTML;
         var request = new XMLHttpRequest();
         request.open("POST","AddToDeck.php",true);
         request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         request.onreadystatechange= function (){
           if ((this.readyState == 4)&&(this.status == 200)){
-            HandleLoadResponse(this.responseText);
+            HandleLoadOneResponse(this.responseText);
           }
         }
         request.send("type=load_deck&uid="+uid);
       }
 
-      function HandleLoadResponse(response){
-        //console.log(response);
-        SuperCard = JSON.parse(response);
-        console.log(SuperCard);
-        var card = JSON.parse(response);
-        //var cardThing = JSON.stringify(response);
-        //console.log(cardThing);
-
-        //var d = new Date();
-        //d.setTime(d.getTime() + (0.042*24*60*60*1000));
-        //var expires = "expires="+ d.toUTCString();
-        document.cookie="cardData=" + response;// + expires + "path=/";
-
-        document.getElementById("cardInfo").innerHTML = "<img src=\"http://" +
-          card.image_url+ "\" alt='yugioh card image' height=400px width=275px><br><p>" +
-          "Card Name: " +card.name+"<br>"+
-          "Card Print Tag: " +card.tag+"<br>"+
-          "Card Rarity: " +card.rarity+"<br>"+
-          "Card High Price: $" +card.high_price+"<br>"+
-          "Card Low Price: $" +card.low_price+"<br>"+
-          "Card Avg Price: $" +card.avg_price+"<br>"+
-          "Card Desc: " +card.text+"<br>"+
-          "Card Type: " +card.card_type+"<br>"+
-          "Monster Type: " +card.type+"<br>"+
-          "Card Element: " +card.family+"<br>"+
-          "Card ATK: " +card.atk+"<br>"+
-          "Card DEF: " +card.def+"<br>"+
-          "Card Level: " +card.level + "</p><br>" +
-
-          "<button type=\"button\" onclick=\"addToDeck()\">Add this card to your deck!</button>";
+      function HandleLoadOneResponse(response){
+        console.log(response);
       }
+
       </script>
     </body>
 </html>
