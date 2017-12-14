@@ -1,5 +1,4 @@
 <?php
-
 define('IN_PHPBB', true);
 $phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : 'theForum/';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);

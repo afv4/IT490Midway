@@ -52,20 +52,6 @@ $user->setup();
         <input type="input" id="rName" class="form-control" placeholder="Real Name" required>
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="submitRegistration()">Create Account Now!</button>
       </form>
-			<h1 id="uname">
-				<?php
-			  	// temporarily enable superglobals
-			    $request->enable_super_globals();
-
-		      session_start();
-		      $_SESSION['UserName'] = 'spanish123';
-		      $_SESSION['PassWord'] = 'password';
-		      $_SESSION['email'] = 'spanish123@gmail.com';
-
-		      // disable superglobals again
-		      $request->disable_super_globals();
-			  ?>
-			</h1>
     </div>
 
 				<script src="js/ie10-viewport-bug-workaround.js"></script>
@@ -73,11 +59,11 @@ $user->setup();
 		function submitRegistration(){
 			var uname = document.getElementById("inputName").value;
 			var pword = document.getElementById("inputPassword").value;
+			var email = document.getElementById("email").value;
 			var dob = document.getElementById("dob").value;
 			var aboutMe = document.getElementById("aboutMe").value;
 			var rName = document.getElementById("rName").value;
-			var email = document.getElementById("email").value;
-			sendRegistrationRequest(uname,pword,dob,aboutMe,rName,email);
+			sendRegistrationRequest(uname,pword,email,dob,aboutMe,rName);
 			return 0;
 		}
 		function HandleRegistrationResponse(response){
@@ -90,7 +76,7 @@ $user->setup();
         alert("Username already in use!");
       }
 		}
-		function sendRegistrationRequest(username,password,dob,aboutMe,rName,email){
+		function sendRegistrationRequest(username,password,email,dob,aboutMe,rName){
 			var request = new XMLHttpRequest();
 			request.open("POST","login.php",true);
 			request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -99,10 +85,8 @@ $user->setup();
 					HandleRegistrationResponse(this.responseText);
 				}
 			}
-			request.send("type=register&uname="+username+"&pword="+password+"&dob="+dob+"&aboutMe="+aboutMe+"&rName="+rName+"&email="+email);
+			request.send("type=register&uname="+username+"&pword="+password+"&email="+email+"&dob="+dob+"&aboutMe="+aboutMe+"&rName="+rName);
 		}
-
 		</script>
-
 	</body>
 </html>

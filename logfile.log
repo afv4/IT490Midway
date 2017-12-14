@@ -351,3 +351,57 @@ This is a local log.
  - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":57.02,"low_price":15.99,"avg_price":24.78,"text":"Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.","card_type":"monster","type":"Machine \/ Effect","family":"dark","atk":2400,"def":1500,"level":6,"image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
 2017-12-08 - Friday - 05:15:08pm - search.php
  - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":57.02,"low_price":15.99,"avg_price":24.78,"text":"Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.","card_type":"monster","type":"Machine \/ Effect","family":"dark","atk":2400,"def":1500,"level":6,"image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-14 - Thursday - 11:07:40am - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-14 - Thursday - 11:17:00am - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-14 - Thursday - 11:17:00am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 11:24:37am - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-14 - Thursday - 11:24:37am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 11:27:40am - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-14 - Thursday - 11:27:41am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 11:35:28am - afv4 - DevFront - Front-End has received response for registration: 0 - login.php
+2017-12-14 - Thursday - 11:35:28am - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-14 - Thursday - 11:36:04am - afv4 - DevFront - Front-End has received response for registration: 0 - login.php
+2017-12-14 - Thursday - 11:36:05am - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-14 - Thursday - 11:56:45am - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 11:56:46am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 12:04:11pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 12:04:11pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 12:17:05pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - login.php
+2017-12-14 - Thursday - 12:49:13pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - login.php
+2017-12-14 - Thursday - 12:49:45pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - login.php
+2017-12-14 - Thursday - 12:49:53pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - login.php
+2017-12-14 - Thursday - 12:50:00pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - login.php
+2017-12-14 - Thursday - 01:26:27pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - loginTEST.php
+2017-12-14 - Thursday - 01:26:35pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - loginTEST.php
+2017-12-14 - Thursday - 01:27:26pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - loginTEST.php
+2017-12-14 - Thursday - 01:28:01pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - loginTEST.php
+2017-12-14 - Thursday - 01:28:42pm - afv4 - DevFront - Front-End Login Successful! unsupported request type, politely FUCK OFF - login.php
+2017-12-14 - Thursday - 01:29:03pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 01:29:03pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 01:34:59pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 01:34:59pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 01:35:19pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 01:35:19pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 01:36:38pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 01:36:38pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 01:42:15pm - afv4 - DevFront - Front-End has received response for login: 0 - login.php
+2017-12-14 - Thursday - 01:42:15pm - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-14 - Thursday - 01:42:22pm - afv4 - DevFront - Front-End has received response for login: 0 - login.php
+2017-12-14 - Thursday - 01:42:22pm - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-14 - Thursday - 01:42:26pm - afv4 - DevFront - Front-End has received response for login: 0 - login.php
+2017-12-14 - Thursday - 01:42:27pm - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-14 - Thursday - 01:42:36pm - afv4 - DevFront - Front-End has received response for login: 0 - login.php
+2017-12-14 - Thursday - 01:42:36pm - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-14 - Thursday - 01:46:58pm - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-14 - Thursday - 01:51:04pm - afv4 - DevFront - Front-End has received response for registration: 0 - login.php
+2017-12-14 - Thursday - 01:51:39pm - afv4 - DevFront - Front-End has received response for registration: 0 - login.php
+2017-12-14 - Thursday - 01:52:11pm - afv4 - DevFront - Front-End has received response for registration: 0 - login.php
+2017-12-14 - Thursday - 01:54:54pm - afv4 - DevFront - Front-End has received response for registration: 0 - login.php
+2017-12-14 - Thursday - 01:54:54pm - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-14 - Thursday - 01:55:28pm - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-14 - Thursday - 01:56:42pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 01:56:42pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 01:58:09pm - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-14 - Thursday - 01:58:09pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-14 - Thursday - 01:58:40pm - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-14 - Thursday - 01:58:40pm - afv4 - DevFront - Front-End Login Successful! 1 - login.php

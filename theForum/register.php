@@ -1,4 +1,4 @@
-<?php
+<?php /*
 define('IN_PHPBB', true);
 $phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './'; //the path to your phpbb relative to this script
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
@@ -7,38 +7,39 @@ include("common.php"); ////the path to your phpbb relative to this script
 // Start session management
 $user->session_begin();
 $auth->acl($user->data);
-$user->setup();
+$user->setup(); */
 
 // Contains the user_add function
 require($phpbb_root_path ."includes/functions_user.php");
-
+function addBBuser($username,$password,$email){
+  /*
   $request->enable_super_globals();
   session_start();
-
   $UserName = $_SESSION['UserName'];
   $PassWord = $_SESSION['PassWord'];
   $email = $_SESSION['email'];
-
   // username of the user being added
   $Rusername = request_var('username', $UserName);
   // the user’s password, which is hashed before inserting into the database
   $Rpassword = request_var('password', $PassWord);
   // an email address for the user
   $Remail = request_var('password', $email);
-
-  $request->disable_super_globals();
+  $request->disable_super_globals(); */
+  $Rusername = $username;
+  $Rpassword = $password;
+  $Remail    = $email;
   // default is 4 for registered users, or 5 for coppa users.
   $group_id = 4;
 
   // since group IDs may change, you may want to use a query to make sure you are grabbing the right default group...
-  $group_name = 'REGISTERED';
+  /*$group_name = 'REGISTERED';
   $sql = 'SELECT group_id
           FROM ' . GROUPS_TABLE . "
           WHERE group_name = '" . $db->sql_escape($group_name) . "'
               AND group_type = " . GROUP_SPECIAL;
   $result = $db->sql_query($sql);
   $row = $db->sql_fetchrow($result);
-  $group_id = $row['group_id'];
+  $group_id = $row['group_id']; */
 
   // timezone of the user... Based on GMT in the format of '-6', '-4', 3, 9 etc...
   $timezone = '-6';
@@ -93,6 +94,7 @@ require($phpbb_root_path ."includes/functions_user.php");
   // and adding the appropriate database entries for this user...
   // tables affected: users table, profile_fields_data table, groups table, and config table.
   $user_id = user_add($user_row);
-  header("Location: ../index.php");
+  //header('Location: ../index.html')
+}
 
 ?>
