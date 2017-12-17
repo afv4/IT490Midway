@@ -17,7 +17,7 @@ $user->setup();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Skeleton by our lord and saviour DJ Kehoe... the scraps by Wizard's Apprentices">
+    <meta name="author" content="Skeleton by our dark lord DJ Kehoe... the scraps by Wizard's Apprentices">
     <link rel="icon" href="favicon.ico">
 
     <title>User Profile</title>
@@ -28,7 +28,7 @@ $user->setup();
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
-    <h1 id="uname">
+    <h1 id="uname" class="hidden">
         <?php
           // temporarily enable superglobals
           $request->enable_super_globals();
@@ -43,9 +43,13 @@ $user->setup();
           echo $_SESSION['username'];
         ?>
     </h1>
-
+    <h1> User Profile </h1>
   <body>
     <form class="form-signin">
+        <h3 id="realName"> Your Name: </h3>
+        <h3 id="yourEmail"> Your E-Mail: </h3>
+        <h3 id="userDoB"> Your DoB: </h3>
+        <h3 id="aboutUser"> About You: </h3>
 
         <!--
         <input type="text" id="receiver" name="sendTo" class="form-control" placeholder="Who are you sending this to?" autofocus>
@@ -65,9 +69,8 @@ $user->setup();
     </form>
 
     <script type="text/javascript">
-
-    function pushMessage()
-    {
+    /*
+    function pushMessage(){
       var receiver = document.getElementById("receiver").value;
       var message = "Hi this is " + document.getElementById('uname').innerHTML + " --> " + document.getElementById("messageBlock").value;
       pushing(receiver,message);
@@ -121,7 +124,7 @@ $user->setup();
     function HandleUIDResponse(response){
       var array = JSON.parse(response);
       document.getElementById("userList").innerHTML = "List of all users: " + array;
-    }
+    }*/
 
     </script>
   </body>

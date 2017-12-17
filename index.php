@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Skeleton by our lord and saviour DJ Kehoe... the scraps by Ayrton Ventura">
+    <meta name="author" content="Skeleton by our dark lord DJ Kehoe... the scraps by Ayrton Ventura">
     <link rel="icon" href="favicon.ico">
 
     <title>Welcome to DIE!</title>
@@ -39,14 +39,13 @@
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href='./registerNow.php'">Register Now</button>
       </form>
 
-    </div> <!-- /container -->
+    </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   	<script type="text/javascript">
+
+
     function submitLogin()
     {
       var uname = document.getElementById("inputName").value;
@@ -54,6 +53,7 @@
       sendLoginRequest(uname,pword);
       return 0;
     }
+
 
     function HandleLoginResponse(response)
     {
@@ -67,6 +67,7 @@
         alert("Incorrect username or password!");
       }
     }
+
 
     function sendLoginRequest(username,password)
     {

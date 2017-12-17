@@ -11,7 +11,7 @@ $uname = $_SESSION['username'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Skeleton by our lord and saviour DJ Kehoe... the scraps by Wizard's Apprentices">
+    <meta name="author" content="Skeleton by our dark lord DJ Kehoe... the scraps by Wizard's Apprentices">
     <link rel="icon" href="favicon.ico">
 
     <title>Card List</title>
@@ -23,7 +23,7 @@ $uname = $_SESSION['username'];
     <link href="signin.css" rel="stylesheet">
   </head>
 
-      <h1 id="uname">
+      <h1 id="uname" class="hidden">
         <?php echo $_SESSION['username'];?>
       </h1>
       <h1 id="pageTitle">Card Search!</h1>

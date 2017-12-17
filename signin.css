@@ -3,7 +3,7 @@ body {
   padding-bottom: 150px;
   color: #000000;
   background-color: #FFDAB9;
-  /*background-image: url("./1.jpg");*/
+  background-image: url("./1.jpg");
   text-align: center;
 }
 
@@ -19,17 +19,34 @@ h1 {
   font-size: 26px;
   font-family: fantasy;
   text-align: center;
-  padding-bottom: 50px;
+  background-color: white;
+  border: 3px 3px 3px 0px;
+  border-style: double;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.hidden {
+  border: 0px;
+  border-style: none;
+  color: #FFDAB9;
+  font-size: 0px;
+  padding: 0px;
 }
 
 .btn{
   background-color: purple;
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 .form-signin {
   max-width: 350px;
   margin: 0 auto;
   color: black;
+  background-color: white;
+  border: 0px 3px 3px 3px;
+  border-style: double;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {

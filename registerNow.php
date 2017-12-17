@@ -17,7 +17,7 @@ $user->setup();
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
-		<meta name="author" content="Skeleton by our lord and saviour DJ Kehoe... the scraps by Ayrton Ventura">
+		<meta name="author" content="Skeleton by our dark lord DJ Kehoe... the scraps by Ayrton Ventura">
 		<link rel="icon" href="favicon.ico">
 
 		<title>Registration Page</title>
@@ -29,11 +29,9 @@ $user->setup();
 		<link href="signin.css" rel="stylesheet">
 	</head>
 
-	<span id='b4'> <a href='theForum/register.php'>bb register</a></span>
-
 	<body>
     <div id = "output">
-	Registration Page!<p>
+			Registration Page!<p>
     </div>
     <div class="container">
       <form class="form-signin">
@@ -56,6 +54,8 @@ $user->setup();
 
 				<script src="js/ie10-viewport-bug-workaround.js"></script>
 			<script>
+
+			
 		function submitRegistration(){
 			var uname = document.getElementById("inputName").value;
 			var pword = document.getElementById("inputPassword").value;
@@ -66,6 +66,8 @@ $user->setup();
 			sendRegistrationRequest(uname,pword,email,dob,aboutMe,rName);
 			return 0;
 		}
+
+
 		function HandleRegistrationResponse(response){
 			var text = JSON.parse(response);
       document.getElementById("output").innerHTML = text;

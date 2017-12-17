@@ -13,7 +13,7 @@ $uname = $_SESSION['username'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Skeleton by our lord and saviour DJ Kehoe... the scraps by Wizard's Apprentices">
+    <meta name="author" content="Skeleton by our dark lord DJ Kehoe... the scraps by Wizard's Apprentices">
     <link rel="icon" href="favicon.ico">
 
     <title>Deck List</title>
@@ -31,15 +31,15 @@ $uname = $_SESSION['username'];
 
     <body>
       <form class="form-signin" action="" method="post">
-          <h3 id="avg"></h3>
-          <h2 id="deckList"></h2>
+          <h3 id="avg"> Average Price: $</h3>
+          <h2 id="deckList">List of Cards in selected deck:</h2>
 
           <input type="text" id="card" name="cardName" class="form-control" placeholder="Exact name of the card you want removed!" autofocus>
           <button type="button" onclick="">Remove Card from Deck</button><br><br>
 
           <button type="button" onclick="load_deck_one()">Show Deck #1</button>
-          <button type="button" onclick="">Show Deck #2</button>
-          <button type="button" onclick="">Show Deck #3</button><br><br>
+          <button type="button" onclick="load_deck_two()">Show Deck #2</button>
+          <button type="button" onclick="load_deck_three()">Show Deck #3</button><br><br>
 
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
           <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./userprofile.php'">Your Profile</button>
