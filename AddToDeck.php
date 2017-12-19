@@ -9,8 +9,17 @@ require_once('rabbitMQLib.inc');
 require_once('logscript.php');
 require_once('CheckAlive.php');
 
-//Function to add card to deck
-//Given card uid, deck_num, and JSON format card Array
+/*
+Function AddCard adds a card to the users deck by sending it to the deck
+table in the database.
+Parameters:
+$uid - The username of the user in string format
+$decknum - The number of the deck that the user is adding the card to
+$card - A JSON array containing the card data.
+Returns:
+A boolean response indicating if the addition was successful. 1 for True, and
+0 for False.
+*/
 function AddCard($uid,/*$decknum,*/$card){
 
   //Decode the card array from JSON format
@@ -34,8 +43,16 @@ function AddCard($uid,/*$decknum,*/$card){
   //echo "saving card to deck".PHP_EOL;
 }
 
-/* Function to remove card from Deck
-Given uid, decknum, and JSON format card Array */
+/*
+Function RemoveCard removes the card from the users deck table.
+Parameters:
+$uid - The username of the user in string format
+$decknum - The number of the deck that the user is removing the card from
+$card - A JSON array containing the card data.
+Returns:
+A boolean response indicating if the removal was successful. 1 for True, and
+0 for False.
+*/
 function RemoveCard($uid,/*$decknum,*/$card){
 
   //Decode the card array from JSON format
@@ -71,9 +88,14 @@ function LoadDeck($uid/*,$decknum*/){
   return $deck;
 }
 
-/* functin to show the cards within the deck
-  given uid and decknum*/
-
+  /*
+  Function ShowCards displays all the cards stored inside a users deck.
+  Parameters:
+  uid - username of users
+  decknum - number of the deck the user wants displayed
+  Returns:
+  An Array of card data
+  */
   function ShowCards($uid){
 
     //load deck from the table
@@ -100,8 +122,14 @@ function LoadDeck($uid/*,$decknum*/){
     return json_encode($card_names);
   }
 
-  //Funcion to get price of deck given uid
-
+  /*
+  Function GetPrice gives the total price of all the cards in the deck
+  Parameters:
+  uid - the username of the users
+  decknum - The number of the deck the user wants the price of
+  Returns:
+  The total price of the deck as a float
+  */
   function GetPrice($uid){
 
     //load deck from the table
