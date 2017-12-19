@@ -50,7 +50,9 @@ $uname = $_SESSION['username'];
       </form>
 
       <script type="text/javascript">
+
         var SuperCard = '';
+
         /* This function pulls the text that was entered in the "searchCards"
            text box and sends that data over to the function below it for
            processing and send it to the server for data pull. */
@@ -77,9 +79,9 @@ $uname = $_SESSION['username'];
           request.send("type=searchAll&val="+value);
         }
 
-
+        /* This function gets the response from "searchCards" and
+           appropriately displays the results to the user. */
         function HandleSearchResponse(response){
-          //console.log(response);
           var array = JSON.parse(response);
           document.getElementById("results").innerHTML = "<p>" + array + "</p>";
         }
@@ -111,18 +113,14 @@ $uname = $_SESSION['username'];
           request.send("type=get_card&tag="+cID+"&name="+cNam);
         }
 
+        /* This function gets the response from "getCardInfo" and
+           appropriately displays the results to the user, while
+           also storing the results in a global javascript variable
+           for use in "addToDeck" if necessary. */
         function HandleCardPullResponse(response){
-          //console.log(response);
           SuperCard = JSON.parse(response);
           console.log(SuperCard);
           var card = JSON.parse(response);
-          //var cardThing = JSON.stringify(response);
-          //console.log(cardThing);
-
-          //var d = new Date();
-          //d.setTime(d.getTime() + (0.042*24*60*60*1000));
-          //var expires = "expires="+ d.toUTCString();
-          document.cookie="cardData=" + response;// + expires + "path=/";
 
           document.getElementById("cardInfo").innerHTML = "<img src=\"http://" +
             card.image_url+ "\" alt='yugioh card image' height=400px width=275px><br><p>" +
@@ -143,37 +141,15 @@ $uname = $_SESSION['username'];
             "<button type=\"button\" onclick=\"addToDeck()\">Add this card to your deck!</button>";
         }
 
-        function getCardCookie() {
-            var name = "cardData=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-
-            for(var i = 0; i <ca.length; i++) {
-                var c = ca[i];
-
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-
-
+        /* This function pulls the card data that was stored to SuperCard
+           in "HandleCardPullResponse" and sends this array to the database
+           to store information and update the user's deck. */
         function addToDeck(){
           var uname = document.getElementById('uname').innerHTML;
           uname = uname.replace(/\s+/g, '');
           console.log(uname);
           console.log(SuperCard);
-          //var card = getCardCookie();
           SuperCard = JSON.stringify(SuperCard)
-          //console.log(card);
-          //card = JSON.parse(card);
-          //console.log(card);
-          //card = JSON.stringify(card);
           var request = new XMLHttpRequest();
           request.open("POST","AddToDeck.php",true);
           request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -182,11 +158,11 @@ $uname = $_SESSION['username'];
               HandleAddResponse(this.responseText);
             }
           }
-          //request.send("type=add_card&uid="+uname+"&card="+card);
           request.send("type=add_card&uid="+uname+"&card="+SuperCard);
         }
 
-
+        /* This function gets the response from "addToDeck" and
+           appropriately displays the results to the user. */
         function HandleAddResponse(response){
           document.getElementById("answer").innerHTML = "<p> CARD ADDED!! </p>";
         }

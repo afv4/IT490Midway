@@ -45,7 +45,10 @@
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   	<script type="text/javascript">
 
-
+    /* This function pulls the text that was entered in the "inputName"
+       and "inputPassword" text boxes and sends that data over to the
+       function "sendLoginRequest" for processing and send it
+       to the authentication server for user verification. */
     function submitLogin()
     {
       var uname = document.getElementById("inputName").value;
@@ -54,21 +57,11 @@
       return 0;
     }
 
-
-    function HandleLoginResponse(response)
-    {
-      console.log(response);
-      var text = JSON.parse(response);
-      document.getElementById("output").innerHTML = text;
-      if(text == "Heading online now!<p><img src='./praisethesun.gif'/>"){
-        alert("Login Success!");
-        document.location.href="userprofile.php";
-      }else if(text == "Incorrect Username or Password<p>"){
-        alert("Incorrect username or password!");
-      }
-    }
-
-
+    /* This function recieves the data that was sent from the above
+       function. Then, this function sends that data over to the
+       authentication server via the login.php file. The returned
+       response is then sent to the function HandleLoginResponse
+       to either allow user access to the site or not. */
     function sendLoginRequest(username,password)
     {
       var request = new XMLHttpRequest();
@@ -82,6 +75,21 @@
       request.send("type=login&uname="+username+"&pword="+password);
     }
 
+    /* This function gets the response from "sendLoginRequest" and
+       appropriately displays whether or not the user was allowed
+       entry into the site and send them in.*/
+    function HandleLoginResponse(response)
+    {
+      console.log(response);
+      var text = JSON.parse(response);
+      document.getElementById("output").innerHTML = text;
+      if(text == "Heading online now!<p><img src='./praisethesun.gif'/>"){
+        alert("Login Success!");
+        document.location.href="userprofile.php";
+      }else if(text == "Incorrect Username or Password<p>"){
+        alert("Incorrect username or password!");
+      }
+    }
     </script>
   </body>
 </html>

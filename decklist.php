@@ -47,6 +47,11 @@ $uname = $_SESSION['username'];
 
       <script type="text/javascript">
 
+      /* This function gets the username stored on the page and sends
+         a request through "AddToDeck.php" to retrieve a list of card
+         names and card tags that are stored under a certain deck number
+         for the specified user. The response is send to
+         "HandleLoadOneResponse" for processing. */
       function load_deck_one(){
         var uid = document.getElementById('uname').innerHTML;
         var request = new XMLHttpRequest();
@@ -60,6 +65,9 @@ $uname = $_SESSION['username'];
         request.send("type=load_deck&uid="+uid);
       }
 
+      /* This function gets the response from "load_deck_one" and
+         appropriately displays the list of cards in the deck and
+         modifies the html-id "avg" to display the correct price.*/
       function HandleLoadOneResponse(response){
         console.log(response);
       }

@@ -55,40 +55,54 @@ $user->setup();
 				<script src="js/ie10-viewport-bug-workaround.js"></script>
 			<script>
 
-			
-		function submitRegistration(){
-			var uname = document.getElementById("inputName").value;
-			var pword = document.getElementById("inputPassword").value;
-			var email = document.getElementById("email").value;
-			var dob = document.getElementById("dob").value;
-			var aboutMe = document.getElementById("aboutMe").value;
-			var rName = document.getElementById("rName").value;
-			sendRegistrationRequest(uname,pword,email,dob,aboutMe,rName);
-			return 0;
-		}
-
-
-		function HandleRegistrationResponse(response){
-			var text = JSON.parse(response);
-      document.getElementById("output").innerHTML = text;
-      if(text == "Heading online now!<p><img src='./praisethesun.gif'/>"){
-        alert("Registration Success!");
-        document.location.href="index.php";
-      }else if(text == "Incorrect Username or Password<p>"){
-        alert("Username already in use!");
-      }
-		}
-		function sendRegistrationRequest(username,password,email,dob,aboutMe,rName){
-			var request = new XMLHttpRequest();
-			request.open("POST","login.php",true);
-			request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-			request.onreadystatechange= function (){
-				if ((this.readyState == 4)&&(this.status == 200)){
-					HandleRegistrationResponse(this.responseText);
+				/* This function pulls the text that was entered in the "inputName",
+				 "inputPassword", "email", "dob", "aboutMe", and "rName" text boxes
+				 and sends that data over to the function "sendRegistrationRequest"
+				 for processing and send it to the authentication server for
+				 user registration and verification. */
+				function submitRegistration(){
+					var uname = document.getElementById("inputName").value;
+					var pword = document.getElementById("inputPassword").value;
+					var email = document.getElementById("email").value;
+					var dob = document.getElementById("dob").value;
+					var aboutMe = document.getElementById("aboutMe").value;
+					var rName = document.getElementById("rName").value;
+					sendRegistrationRequest(uname,pword,email,dob,aboutMe,rName);
+					return 0;
 				}
-			}
-			request.send("type=register&uname="+username+"&pword="+password+"&email="+email+"&dob="+dob+"&aboutMe="+aboutMe+"&rName="+rName);
-		}
+
+				/* This function recieves the data that was sent from the above
+		       function. Then, this function sends that data over to the
+		       authentication server via the login.php file. The returned
+		       response is then sent to the function "HandleRegistrationResponse"
+		       to either allow user to register with this info and access to the
+					 site or not. */
+				function sendRegistrationRequest(username,password,email,dob,aboutMe,rName){
+					var request = new XMLHttpRequest();
+					request.open("POST","login.php",true);
+					request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+					request.onreadystatechange= function (){
+						if ((this.readyState == 4)&&(this.status == 200)){
+							HandleRegistrationResponse(this.responseText);
+						}
+					}
+					request.send("type=register&uname="+username+"&pword="+password+"&email="+email+"&dob="+dob+"&aboutMe="+aboutMe+"&rName="+rName);
+				}
+
+				/* This function gets the response from "sendRegistrationRequest"
+					 and appropriately displays whether or not the user was allowed
+		       to register with this info and gain entry into the site
+					 and send them to the login page.*/
+				function HandleRegistrationResponse(response){
+					var text = JSON.parse(response);
+					document.getElementById("output").innerHTML = text;
+					if(text == "Heading online now!<p><img src='./praisethesun.gif'/>"){
+					  alert("Registration Success!");
+					  document.location.href="index.php";
+					}else if(text == "Incorrect Username or Password<p>"){
+					  alert("Username already in use!");
+					}
+				}
 		</script>
 	</body>
 </html>

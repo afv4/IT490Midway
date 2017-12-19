@@ -51,81 +51,13 @@ $user->setup();
         <h3 id="userDoB"> Your DoB: </h3>
         <h3 id="aboutUser"> About You: </h3>
 
-        <!--
-        <input type="text" id="receiver" name="sendTo" class="form-control" placeholder="Who are you sending this to?" autofocus>
-        <input type="text" id="messageBlock" name="messageArea" class="form-control" placeholder="Write your message!" autofocus>
-        <button type="button" onclick="pushMessage()">SEND Message</button>
-
-        <h2 id="userList"><h2>
-
-        <h2>***Inbox***</h2>
-        <button type="button" onclick="pullMessage()">Update Inbox</button><br>
-        <div id="inbox"></div>
-        -->
-
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./cardlist.php'">Card Search</button>
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./decklist.php'">Your Deck</button><br>
         <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='./theForum/autologin.php'">THE FORUM</button>
     </form>
 
     <script type="text/javascript">
-    /*
-    function pushMessage(){
-      var receiver = document.getElementById("receiver").value;
-      var message = "Hi this is " + document.getElementById('uname').innerHTML + " --> " + document.getElementById("messageBlock").value;
-      pushing(receiver,message);
-      return 0;
-    }
-
-    function pushing(receiver,message){
-      var request = new XMLHttpRequest();
-      request.open("POST","forum.php",true);
-      request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-      request.send("type=sendMessage&userName="+receiver+"&message="+message);
-    }
-
-    function pullMessage()
-    {
-      var uname = document.getElementById('uname').innerHTML;
-      pulling(uname);
-      return 0;
-    }
-
-    function pulling(uname){
-      var request = new XMLHttpRequest();
-      request.open("POST","forum.php",true);
-      request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-      request.onreadystatechange= function (){
-        if ((this.readyState == 4)&&(this.status == 200)){
-          HandlePullingResponse(this.responseText);
-        }
-      }
-      request.send("type=getMessage&userName="+uname);
-    }
-
-    function HandlePullingResponse(response){
-      console.log(response);
-      var messages = JSON.parse(response);
-      document.getElementById("inbox").innerHTML = "<p>" + messages + "</p>";
-    }
-
-    function getAll(){
-      var request = new XMLHttpRequest();
-      request.open("POST","forum.php",true);
-      request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-      request.onreadystatechange= function (){
-        if ((this.readyState == 4)&&(this.status == 200)){
-          HandleUIDResponse(this.responseText);
-        }
-      }
-      request.send("type=getAllUsers");
-    }
-
-    function HandleUIDResponse(response){
-      var array = JSON.parse(response);
-      document.getElementById("userList").innerHTML = "List of all users: " + array;
-    }*/
-
+    
     </script>
   </body>
 
