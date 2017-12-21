@@ -1,22 +1,38 @@
 #!/usr/bin/php
 <?php
-require_once('./path.inc');
-require_once('./get_host_info.inc');
-require_once('./rabbitMQLib.inc');
-require_once('./logscript.php');
+/**
+* This is the deploy server client
+* This app has 3 functions New | Deploy | Rollback
+* This file containsmany functions used in the proccess of deploying to a server
+*
+* PHP version 7.0.22
+*
+* @license MIT http://opensource.org/license/might
+* @author Alfonso Austin <aga23@njit.edu>
+* @since 1.0
+*/
+
+
+//Define path for root to folow
+$root_path = '/home/amuthiyan/git/IT490/';
+
+require_once($root_path.'RabbitMQ/path.inc');
+require_once($root_path.'RabbitMQ/get_host_info.inc');
+require_once($root_path.'RabbitMQ/rabbitMQLib.inc');
+require_once($root_path.'Logging/logscript.php');
 
 $destIP = '';
 $user = '';
 $dServDir = '';
 $layer = '';
 
-$string = shell_exec("cat ./conf.ini | grep -i user | awk '{ print $3 }'");
+$string = shell_exec("cat conf.ini | grep -i user | awk '{ print $3 }'");
 $user = trim(preg_replace('/\s+/', ' ', $string));
-$string1 = shell_exec("cat ./conf.ini | grep -i deployserver | awk '{ print $3 }'");
+$string1 = shell_exec("cat conf.ini | grep -i deployserver | awk '{ print $3 }'");
 $dServDir = trim(preg_replace('/\s+/', ' ', $string1));
-$string2 = shell_exec("cat ./conf.ini | grep -i layer | awk '{ print $3 }'");
+$string2 = shell_exec("cat conf.ini | grep -i layer | awk '{ print $3 }'");
 $layer = trim(preg_replace('/\s+/', ' ', $string2));
-$string3 = shell_exec("cat ./conf.ini | grep -i localmachine | awk '{ print $3 }'");
+$string3 = shell_exec("cat conf.ini | grep -i localmachine | awk '{ print $3 }'");
 $machine = trim(preg_replace('/\s+/', ' ', $string3));
 
 //check to make sure the user eneters a function and Version ID
@@ -29,24 +45,54 @@ if(empty($argv[1])){
 
 $caseD = strtolower($argv[1]);
 
+/**
+* Finds and returns the latest version a machine
+*
+* @param string $layer the layer the machine is on
+* @param string $machine the name of the machine
+* @return int $out the latest version of that machine
+*/
 function checkLtsVer($layer,$machine){
   $out = sendtoServer($layer,"chkLtsVer","n/a","n/a","n/a",$machine);
   return $out;
 }
 
+/**
+*  Checks to see if a version is deprecated or not
+*
+* @param string $layer the layer the machine is on
+* @param string $machine the name of the machine
+* @param int $vid the interface you wished to check
+* @return int $out 1 or 0 to represent yes or no
+*/
 function checkDepC($layer,$machine,$vid){
   $out = sendtoServer($layer,"chkDep",$vid,"n/a","n/a",$machine);
   return $out;
 }
 
+/**
+* Check the latest version stored in the DB
+*
+* @param string $layer the layer the machine is on
+* @param string $machine the name of the machine
+* @return int $out the latest version of that machine listed in the DB
+*/
 function checkDBVer($layer,$machine){
   $out = sendtoServer($layer,"chkDbVer","n/a","n/a","n/a",$machine);
   return $out;
 }
-//This function will make a bundle and send it to your approprite folder on
-//the deploy server
+
+/**
+* This function will make a bundle and send it to your approprite folder on
+* the deploy server
+*
+* @param string $version_id the version of the package
+* @param string $user who the user is
+* @param string $dir the directory on the sever
+*/
 function deployNew($version_id,$user,$dir){
-  shell_exec("mkdir $version_id;
+  shell_exec("cd ../
+              mkdir $version_id;
               rsync -Rr * $version_id;
               rmdir $version_id/$version_id;
               tar -cvzf $version_id.tar.gz $version_id;
@@ -55,8 +101,16 @@ function deployNew($version_id,$user,$dir){
               rm $version_id.tar.gz;");
             }
 
-//this function sends a command to the deploy server
-//this whill deploy an alredy existing bundle
+/**
+* Triggers an event on the sever to deploy a specifc version onto a specified
+* machine
+*
+* @param string $vid the version of the package
+* @param int $dip who the user is
+* @param string $dir the directory to write deploy onto
+* @param string $layer the layer the machine is on
+* @param string $machine the name of the machine
+*/
 function deploy($vid,$dip,$dir,$layer,$machine){
   $check = checkVer($vid,$layer,$machine);
 
@@ -80,18 +134,39 @@ function deploy($vid,$dip,$dir,$layer,$machine){
   }
 }
 
+/**
+* This function sends a command to the server to rollack to a desired version
+*
+* @param string $vid the version of the package
+* @param int $dip who the user is
+* @param string $dir the directory to write deploy onto
+* @param string $layer the layer the machine is on
+*/
 function rollback($vid,$dip,$dir,$layer){
   echo "THE VERSION is ".$vid.PHP_EOL;
   sendtoServer($layer,"deployExt",$vid,$dip,$dir,"n/a");
 }
 
+/**
+* Finds and returns the latest not deprecated version for a machine
+*
+* @param string $layer the layer the machine is on
+* @param string $machine the name of the machine
+*/
 function checkRoll($layer,$machine){
   $ltsVer = checkLtsVer($layer,$machine);
   $out = sendtoServer($layer,"chkRoll",$ltsVer,"n/a","n/a",$machine);
   return $out;
 }
-//check to see if the version alredy enchant_broker_dict_exists
-//this might be taken out if we use a DB to track this
+
+/**
+* Checks if the version is valid.
+*
+* @param int $vid the version you are checking
+* @param string $layer the layer the machine is on
+* @param string $machine the name of the machine
+* @return int 1 or 0 to represent yes or no
+*/
 function checkVer($vid,$layer,$machine){
   $stat = sendtoServer($layer,"chkVer",$vid,"n/a","n/a",$machine);
   if($stat == 1){
@@ -101,10 +176,19 @@ function checkVer($vid,$layer,$machine){
   return 0;
 }
 
-//send a meesage to the deploy server, make sure the transfer was Successful
-//Also pass the destination IP so the server knows who to send it to
+/**
+* Sends a message to the server with the relevant info specified
+*
+* @param string $type layer the machin is on
+* @param string $func the type of function that is to be executed
+* @param int $vid the version in question
+* @param string $dip the name of the destination machine
+* @param string $dir where the file is going to be deployed to
+* @param string $machine the name of the machine
+* @return array $response the respoonse from the server usually a JSON array
+*/
 function sendtoServer($type,$func,$vid,$dip,$dir,$machine){
-  $client = new rabbitMQClient("./deploy.ini","testServer");
+  $client = new rabbitMQClient("deploy.ini","testServer");
   $request = array();
   $request['type'] = $type;
   $request['func'] = $func;
@@ -120,7 +204,17 @@ function sendtoServer($type,$func,$vid,$dip,$dir,$machine){
   return $response;
 }
 
-//this will only send data to deploy server will not deploy it
+/**
+* This function triggers two other functions in conjuction to push a new package
+* to the server
+*
+* @param string $caseD the type of function that is to be executed
+* @param int $vid the version in question
+* @param string $user the user sending the request
+* @param string $dServDir where the file is going to be deployed to
+* @param string $layer the layer the machine is on
+* @param string $machine the name of the machine
+*/
 function doPush($vid,$caseD,$user,$dServDir,$layer){
   //send the data to deploy server
   deployNew($vid,$user,$dServDir);

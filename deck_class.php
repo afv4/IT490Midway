@@ -32,8 +32,8 @@ class Deck{
     if(count($this->deck)<60){
       array_push($this->deck,$card);
       //send card to database
-      $client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
-      //$client = SendToConsumer("DeckRabbit.ini", "DeckBackup.ini", "DeckServer");
+      //$client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
+      $client = SendToConsumer("DeckRabbit.ini", "DeckBackup.ini", "DeckServer");
       $request = array();
       $request["type"] = "save_deck";
       $request["uid"] = $this->uid;

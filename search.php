@@ -9,8 +9,8 @@ function searchCards($type,$val)
 {
   $file = __FILE__.PHP_EOL;
 	$PathArray = explode("/",$file);
-  $client = new rabbitMQClient("queryRabbitMQ.ini","testServer");
-  //$client = SendToConsumer("queryRabbitMQ.ini", "queryBackup.ini", "testServer");
+  //$client = new rabbitMQClient("queryRabbitMQ.ini","testServer");
+  $client = SendToConsumer("queryRabbitMQ.ini", "queryBackup.ini", "testServer");
   $request = array();
   $request['type'] = $type;
   $request['val'] = $val;
@@ -25,8 +25,8 @@ function getCard($type,$tag,$name)
 {
   $file = __FILE__.PHP_EOL;
   $PathArray = explode("/",$file);
-  $client = new rabbitMQClient("APIRabbit.ini","APIServer");
-  //$client = SendToConsumer("APIRabbit.ini", "APIBackup.ini", "APIServer");
+  //$client = new rabbitMQClient("APIRabbit.ini","APIServer");
+  $client = SendToConsumer("APIRabbit.ini", "APIBackup.ini", "APIServer");
   $request = array();
   $request['type'] = $type;
   $request['tag'] = $tag;

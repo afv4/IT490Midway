@@ -14,6 +14,7 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('logscript.php');
 require_once('theForum/register.php');
+require_once('CheckAlive.php');
 
 $request->enable_super_globals();
 
@@ -32,8 +33,8 @@ function sendtoServer($type,$username,$password)
 {
 	$file = __FILE__.PHP_EOL;
 	$PathArray = explode("/",$file);
-  $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-	//$client = SendToConsumer("testRabbitMQ.ini", "testBackup.ini", "testServer");
+  //$client = new rabbitMQClient("loginRabbitMQ.ini","testServer");
+	$client = SendToConsumer("loginRabbitMQ.ini", "loginBackup.ini", "testServer");
   $request = array();
   $request['type'] = $type;
   $request['username'] = $username;
@@ -48,8 +49,8 @@ function registertoServer($type,$username,$password,$email,$dob,$aboutMe,$rName)
 {
 	$file = __FILE__.PHP_EOL;
 	$PathArray = explode("/",$file);
-  $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-	//$client = SendToConsumer("testRabbitMQ.ini", "testBackup.ini", "testServer");
+  //$client = new rabbitMQClient("loginRabbitMQ.ini","testServer");
+	$client = SendToConsumer("loginRabbitMQ.ini", "loginBackup.ini", "testServer");
   $request = array();
   $request['type'] = $type;
   $request['username'] = $username;
