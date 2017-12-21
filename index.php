@@ -25,7 +25,7 @@
     <div class="container">
 
       <form id="loginForm" class="form-signin">
-        <h2 class="form-signin-heading">Authenticate Yourself On the Primary!</h2>
+        <h2 class="form-signin-heading">Authenticate Yourself</h2>
         <label for="inputName" class="sr-only">Username</label>
         <input type="username" id="inputName" name="userInput" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>

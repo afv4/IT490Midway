@@ -84,7 +84,7 @@ function LoadDeck($uid/*,$decknum*/){
   $response = $client->send_request($request);
 
   //Receive deck data and decode it
-  $deck = json_decode($response,true);
+  //$deck = json_decode($response,true);
   return $deck;
 }
 

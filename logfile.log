@@ -455,3 +455,33 @@ This is a local log.
  - afv4 - Front-End pulled card info:  - "{\"name\":\"Jinzo\",\"tag\":\"BPT-001\",\"rarity\":\"Secret Rare\",\"high_price\":\"56.79\",\"low_price\":\"16\",\"avg_price\":\"26\",\"text\":\"monster\",\"card_type\":\"\",\"type\":null,\"family\":\"dark\",\"atk\":\"2400\",\"def\":\"1500\",\"level\":\"6\",\"image_url\":\"static-3.studiobebop.net\\\/ygo_data\\\/card_images\\\/Jinzo.jpg\"}"
 2017-12-14 - Thursday - 02:48:24pm - search.php
  - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":"56.79","low_price":"16","avg_price":"26","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-21 - Thursday - 09:23:21am - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-21 - Thursday - 09:23:21am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-21 - Thursday - 09:25:35am - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-21 - Thursday - 09:25:35am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-21 - Thursday - 09:34:16am - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-21 - Thursday - 09:34:17am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-21 - Thursday - 09:38:34am - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-21 - Thursday - 09:38:34am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-21 - Thursday - 09:38:47am - afv4 - DevFront - Front-End has received card list: ["Jinzo -- BPT-011","Jinzo - Jector -- MP15-EN214","Jinzo -- YAP1-EN007","Jinzo -- BP01-EN003","Jinzo -- DB1-EN067","Jinzo 7 -- DB1-EN162","Jinzo -- DL12-EN005","Jinzo -- DPBC-EN027","Jinzo -- DUSA-EN045","Jinzo -- GLD1-EN003","Jinzo -- LCJW-EN023","Jinzo -- LDK2-ENJ10","Jinzo - Lord -- LODT-EN007","Jinzo - Returner -- LODT-EN006","Jinzo 7 -- MRD-EN035","Jinzo 7 -- MRD-035","Jinzo 7 -- MRD-E035","Jinzo -- PSV-EN000","Jinzo -- PSV-000","Jinzo -- PSV-E000","Jinzo -- PGLD-EN051","Jinzo -- RP02-EN001","Jinzo - Jector -- SECE-EN031","Jinzo - Jector -- SECE-ENS06"] - search.php
+2017-12-21 - Thursday - 09:38:55am - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":"56.79","low_price":"16","avg_price":"26","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-21 - Thursday - 09:42:57am - afv4 - DevFront - Front-End has received response for registration: 0 - login.php
+2017-12-21 - Thursday - 09:42:57am - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-21 - Thursday - 09:50:29am - afv4 - DevFront - Front-End has received response for registration: 1 - login.php
+2017-12-21 - Thursday - 09:50:30am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-21 - Thursday - 09:50:43am - afv4 - DevFront - Front-End has received response for login: 0 - login.php
+2017-12-21 - Thursday - 09:50:43am - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-21 - Thursday - 09:50:51am - afv4 - DevFront - Front-End has received response for login: 0 - login.php
+2017-12-21 - Thursday - 09:50:51am - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-21 - Thursday - 09:51:09am - afv4 - DevFront - Front-End has received response for login: 0 - login.php
+2017-12-21 - Thursday - 09:51:09am - afv4 - DevFront - Front-End Login Failed! 0 - login.php
+2017-12-21 - Thursday - 09:51:27am - afv4 - DevFront - Front-End has received response for login: 1 - login.php
+2017-12-21 - Thursday - 09:51:28am - afv4 - DevFront - Front-End Login Successful! 1 - login.php
+2017-12-21 - Thursday - 09:55:13am - afv4 - DevFront - Front-End has received response for login: Array - login.php
+2017-12-21 - Thursday - 09:55:14am - afv4 - DevFront - Front-End Login Successful! Array - login.php
+2017-12-21 - Thursday - 09:58:07am - afv4 - DevFront - Front-End has received card list: ["Jinzo -- BPT-011","Jinzo - Jector -- MP15-EN214","Jinzo -- YAP1-EN007","Jinzo -- BP01-EN003","Jinzo -- DB1-EN067","Jinzo 7 -- DB1-EN162","Jinzo -- DL12-EN005","Jinzo -- DPBC-EN027","Jinzo -- DUSA-EN045","Jinzo -- GLD1-EN003","Jinzo -- LCJW-EN023","Jinzo -- LDK2-ENJ10","Jinzo - Lord -- LODT-EN007","Jinzo - Returner -- LODT-EN006","Jinzo 7 -- MRD-EN035","Jinzo 7 -- MRD-035","Jinzo 7 -- MRD-E035","Jinzo -- PSV-EN000","Jinzo -- PSV-000","Jinzo -- PSV-E000","Jinzo -- PGLD-EN051","Jinzo -- RP02-EN001","Jinzo - Jector -- SECE-EN031","Jinzo - Jector -- SECE-ENS06"] - search.php
+2017-12-21 - Thursday - 09:58:24am - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":"56.79","low_price":"16","avg_price":"26","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}
+2017-12-21 - Thursday - 10:04:29am - search.php
+ - afv4 - Front-End pulled card info:  - {"name":"Jinzo","tag":"BPT-001","rarity":"Secret Rare","high_price":"56.79","low_price":"16","avg_price":"26","text":"monster","card_type":"","type":null,"family":"dark","atk":"2400","def":"1500","level":"6","image_url":"static-3.studiobebop.net\/ygo_data\/card_images\/Jinzo.jpg"}

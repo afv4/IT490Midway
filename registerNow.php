@@ -48,7 +48,7 @@ $user->setup();
         <input type="input" id="aboutMe" class="form-control" placeholder="About Me" required>
 				<label for="rName" class="sr-only">Real Name</label>
         <input type="input" id="rName" class="form-control" placeholder="Real Name" required>
-        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="submitRegistration()">Create Account Now!</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="submitRegistration()">Create Account!</button>
       </form>
     </div>
 

@@ -2,6 +2,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('CheckAlive.php');
 
 if (!isset($_POST)){
 	$msg = "NO POST MESSAGE SET, POLITELY FUCK OFF";
@@ -32,8 +33,8 @@ class Deck{
     if(count($this->deck)<60){
       array_push($this->deck,$card);
       //send card to database
-      $client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
-      //$client = SendToConsumer("DeckRabbit.ini", "DeckBackup.ini", "DeckServer");
+      //$client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
+      $client = SendToConsumer("DeckRabbit.ini", "DeckBackup.ini", "DeckServer");
       $request = array();
       $request["type"] = "save_deck";
       $request["uid"] = $this->uid;
@@ -106,8 +107,8 @@ class Deck{
 
   public function load_deck($uid){
     //load deck from the table
-    $client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
-    //$client = SendToConsumer("DeckRabbit.ini", "DeckBackup.ini", "DeckServer");
+    //$client = new rabbitMQClient("DeckRabbit.ini","DeckServer");
+    $client = SendToConsumer("DeckRabbit.ini", "DeckBackup.ini", "DeckServer");
     $request = array();
     $request["type"] = "load_deck";
     $request['uid'] = $uid;

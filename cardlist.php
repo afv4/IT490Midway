@@ -130,9 +130,6 @@ $uname = $_SESSION['username'];
             "Card High Price: $" +card.high_price+"<br>"+
             "Card Low Price: $" +card.low_price+"<br>"+
             "Card Avg Price: $" +card.avg_price+"<br>"+
-            "Card Desc: " +card.text+"<br>"+
-            "Card Type: " +card.card_type+"<br>"+
-            "Monster Type: " +card.type+"<br>"+
             "Card Element: " +card.family+"<br>"+
             "Card ATK: " +card.atk+"<br>"+
             "Card DEF: " +card.def+"<br>"+

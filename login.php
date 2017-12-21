@@ -13,6 +13,7 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('logscript.php');
+require_once('CheckAlive.php');
 require_once('theForum/register.php');
 
 $request->enable_super_globals();
@@ -40,7 +41,7 @@ function sendtoServer($type,$username,$password)
   $request['password'] = $password;
   $response = $client->send_request($request);
 
-	LogMsg("Front-End has received response for login: ".$response, $PathArray[4], 'afv4', 'DevFront');
+	LogMsg("Front-End has received response for login: ".$response, $PathArray[4], 'afv4', 'ProdFront');
   return $response;
 }
 
@@ -60,7 +61,7 @@ function registertoServer($type,$username,$password,$email,$dob,$aboutMe,$rName)
 	$request['rName'] = $rName;
   $response = $client->send_request($request);
 
-  LogMsg("Front-End has received response for registration: ".$response, $PathArray[4], 'afv4', 'DevFront');
+  LogMsg("Front-End has received response for registration: ".$response, $PathArray[4], 'afv4', 'ProdFront');
   return $response;
 }
 
@@ -89,13 +90,13 @@ $_SESSION['deck'] = LoadDeck($uname);
 if($response){
 	$file = __FILE__.PHP_EOL;
 	$PathArray = explode("/",$file);
-	LogMsg("Front-End Login Successful! ".$response, $PathArray[4], 'afv4', 'DevFront');
+	LogMsg("Front-End Login Successful! ".$response, $PathArray[4], 'afv4', 'ProdFront');
 	echo json_encode("Heading online now!<p><img src='./praisethesun.gif'/>");
 }
 else{
 	$file = __FILE__.PHP_EOL;
 	$PathArray = explode("/",$file);
-	LogMsg("Front-End Login Failed! ".$response, $PathArray[4], 'afv4', 'DevFront');
+	LogMsg("Front-End Login Failed! ".$response, $PathArray[4], 'afv4', 'ProdFront');
 	echo json_encode("Incorrect Username or Password<p>");
 }
 exit(0);

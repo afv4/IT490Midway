@@ -16,7 +16,7 @@ function searchCards($type,$val)
   $request['val'] = $val;
   $response = $client->send_request($request);
 
-  LogMsg("Front-End has received card list: ".$response, $PathArray[4], 'afv4', 'DevFront');
+  LogMsg("Front-End has received card list: ".$response, $PathArray[4], 'afv4', 'ProdFront');
   print_r($response);
   return $response;
 }
@@ -33,7 +33,7 @@ function getCard($type,$tag,$name)
   $request['name'] = $name;
   $response = $client->send_request($request);
 
-  LogMsg("Front-End pulled card info: ",$response, $PathArray[4], 'afv4', 'DevFront');
+  LogMsg("Front-End pulled card info: ",$response, $PathArray[4], 'afv4', 'ProdFront');
   print_r($response);
   return $response;
 }

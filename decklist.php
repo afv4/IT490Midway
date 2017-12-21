@@ -53,13 +53,18 @@ $uname = $_SESSION['username'];
          for the specified user. The response is send to
          "HandleLoadOneResponse" for processing. */
       function load_deck_one(){
+        
         var uid = document.getElementById('uname').innerHTML;
+        uid = uid.replace(/\s+/g, '');
+
         var request = new XMLHttpRequest();
         request.open("POST","AddToDeck.php",true);
         request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         request.onreadystatechange= function (){
           if ((this.readyState == 4)&&(this.status == 200)){
-            HandleLoadOneResponse(this.responseText);
+            var response = this.responseText;
+            console.log(response);
+            HandleLoadOneResponse(response);
           }
         }
         request.send("type=load_deck&uid="+uid);
